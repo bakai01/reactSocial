@@ -1,0 +1,53 @@
+.menu {
+    grid-area: sideBar;
+    background-color: #1e2769;
+    border-radius: 15px;
+}
+
+.list {
+    list-style: none;
+}
+
+.item {
+    padding: 10px;
+}
+
+.link {
+    text-decoration: none;
+    font-family: 'Helvetica Neue';
+    color: seashell;
+    font-size: 20px;
+}
+
+.active {
+    color: #50b5ff;
+}
+
+h4 {
+    margin-left: 20px;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.friends {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    align-items: center;
+}
+
+.mas__friends {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img__ava {
+    padding: 10px;
+    width: 40px;
+}
+
+span {
+    color: #fff;
+}

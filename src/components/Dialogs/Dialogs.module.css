@@ -1,0 +1,9 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    font-size: 20px;
+}
+
+.messages {
+    background-color: #000;
+}

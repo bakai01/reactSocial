@@ -1,0 +1,24 @@
+.app__wrapper {
+    display: grid;
+
+    grid-template-areas: 
+        "header header"
+        "sideBar main";
+
+    grid-template-rows: 120px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 30px;
+
+    width: 97%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wrapper__content {
+    grid-area: main;
+    background-color: #1e2769;
+    border-radius: 15px !important;
+    color: #8c91b6;
+    padding: 20px;
+}
