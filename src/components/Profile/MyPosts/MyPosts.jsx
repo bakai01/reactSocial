@@ -7,18 +7,20 @@ const MyPosts = (props) => {
   const textOfPost = React.createRef();
 
   const addPost = () => {
-    props.addPost(textOfPost.current.value);
+    const action = { type: "ADD-NEW-POST" };
+    props.dispatch(action);
   };
 
-  const updateTextOfPost = () => {
-    props.updateTextOfPost(textOfPost.current.value);
+  const updatePostOfText = () => {
+    const action = { type: "UPDATE-POST-OF-TEXT", newWordInTextarea: textOfPost.current.value  };
+    props.dispatch(action);
   };
   
   return (
       <div className = {style.l}>
         <h3>My posts</h3>
         <div>
-          <textarea ref = { textOfPost } onChange={updateTextOfPost} value={props.profilePage.newPostText} />
+          <textarea ref = { textOfPost } onChange={updatePostOfText} value={props.profilePage.newPostText} />
           <button onClick = { addPost }>Publish</button>
         </div>
         {

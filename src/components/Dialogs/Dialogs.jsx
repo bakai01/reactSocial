@@ -8,11 +8,13 @@ const Dialogs = (props) => {
     const textOfMessage = React.createRef();
 
     const addNewMessage = () => {
-        props.addMessage(textOfMessage.current.value);
+        const action = { type: "ADD-NEW-MESSAGE" };
+        props.dispatch(action);
     };
 
     const onChangeMessageText = () => {
-        props.updateMessageOfText(textOfMessage.current.value);
+        const action = { type: "UPDATE-MESSAGE-OF-TEXT", newWordInTextarea:  textOfMessage.current.value };
+        props.dispatch(action);
     };
 
     return (

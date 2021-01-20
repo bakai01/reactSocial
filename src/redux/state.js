@@ -27,53 +27,62 @@ const store = {
             ]
         }
     },
-    getState() {
-        return this._state;
-    },
+    
     _callSubscriber() {
         // rerender every change in state
     },
-    getLastMessageId() {
+    _getLastMessageId() {
         let messageList = this._state.dialogsPage.listOfAllMessages;
         let i = messageList[messageList.length - 1].id;
         return ++i;
     },
-    getLastPostId() {
+    _getLastPostId() {
         let postList = this._state.profilePage.listOfAllPosts;
         let i = postList[postList.length - 1].id;
         return ++i;
     },
-    addMessage(message) {
-        const newMessage = {
-            id: this.getLastMessageId(),
-            text: message
-        };
-debugger;
-        this._state.dialogsPage.listOfAllMessages.push(newMessage);
-        this._state.dialogsPage.newMessageText = "";
-        this._callSubscriber(this._state);
-    },
-    addPost(textOfPost) {
-        const newPost = {
-            id: this.getLastPostId(),
-            text: textOfPost,
-            likesCount: 0
-        };
-debugger;   
-        this._state.profilePage.listOfAllPosts.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this._callSubscriber(this._state);
-    },
-    updatePostOfText(newWordInTextarea) {
-        this._state.profilePage.newPostText = newWordInTextarea;
-        this._callSubscriber(this._state);
-    },
-    updateMessageOfText(newWordInTextarea) {
-        this._state.dialogsPage.newMessageText = newWordInTextarea;
-        this._callSubscriber(this._state);
+
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+        if (action.type === "UPDATE-MESSAGE-OF-TEXT") {
+            this._state.dialogsPage.newMessageText = action.newWordInTextarea;
+            this._callSubscriber(this._state);
+        }
+
+        else if (action.type === "UPDATE-POST-OF-TEXT") {
+            this._state.profilePage.newPostText = action.newWordInTextarea;
+            this._callSubscriber(this._state);
+        }
+
+        else if (action.type === "ADD-NEW-MESSAGE") {
+            debugger;
+            const newMessage = {
+                id: this._getLastMessageId(),
+                text: this._state.dialogsPage.newMessageText
+            };
+    
+            this._state.dialogsPage.listOfAllMessages.push(newMessage);
+            this._state.dialogsPage.newMessageText = "";
+            this._callSubscriber(this._state);
+        }
+
+        else if (action.type === "ADD-NEW-POST") {
+            const newPost = {
+                id: this._getLastPostId(),
+                text: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+    
+            this._state.profilePage.listOfAllPosts.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state);
+        }
     }
 };
 
