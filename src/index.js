@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import state, {subscribe} from "./redux/state";
+import store from "./redux/state";
 import App from "./components/App";
-import {addMessage, addPost, updateMessageOfText, updatePostOfText} from "./redux/state";
 
 const renderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} addMessage={addMessage} addPost={addPost}
-                updateTextOfPost={updatePostOfText}
-                updateMessageOfText={updateMessageOfText} />
+            <App state={store.getState()} addMessage={store.addMessage.bind(store)} 
+                addPost={store.addPost.bind(store)}
+                updateTextOfPost={store.updatePostOfText.bind(store)}
+                updateMessageOfText={store.updateMessageOfText.bind(store)} />
         </React.StrictMode>,
         document.getElementById("root")
     );
 };
 
-renderEntireTree(state);
+renderEntireTree();
 
-subscribe(renderEntireTree);
+store.subscribe(renderEntireTree);

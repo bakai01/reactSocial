@@ -13,7 +13,7 @@ const MyPosts = (props) => {
   const updateTextOfPost = () => {
     props.updateTextOfPost(textOfPost.current.value);
   };
-
+  
   return (
       <div className = {style.l}>
         <h3>My posts</h3>
@@ -22,7 +22,7 @@ const MyPosts = (props) => {
           <button onClick = { addPost }>Publish</button>
         </div>
         {
-          props.profilePage.postsData.map( (item) => {
+          props.profilePage.listOfAllPosts.map( (item) => {
             return (
               <Post text={item.text} likesCount={item.likesCount} />
             );

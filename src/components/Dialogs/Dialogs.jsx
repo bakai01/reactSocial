@@ -28,7 +28,7 @@ const Dialogs = (props) => {
             </div>
             <div className = {style.messages}>
                 {
-                    props.dialogsPage.messageData.map( (item) => {
+                    props.dialogsPage.listOfAllMessages.map( (item) => {
                         return (
                             <Message id = {item.id} text={item.text} />
                         );
