@@ -5,14 +5,12 @@ import {addPostActionCreator, updatePostOfTextActionCreator} from "../../../redu
 
 const MyPosts = (props) => {
 
-  const textOfPost = React.createRef();
-
   const addPost = () => {
     props.dispatch(addPostActionCreator());
   };
 
-  const updatePostOfText = () => {
-    let textFromTextare = textOfPost.current.value;
+  const updatePostOfText = (event) => {
+    let textFromTextare = event.target.value;
     props.dispatch(updatePostOfTextActionCreator(textFromTextare));
   };
   
@@ -20,7 +18,7 @@ const MyPosts = (props) => {
       <div className = {style.l}>
         <h3>My posts</h3>
         <div>
-          <textarea ref = { textOfPost } onChange={updatePostOfText} value={props.profilePage.newPostText} />
+          <textarea onChange={updatePostOfText} value={props.profilePage.newPostText} />
           <button onClick = { addPost }>Publish</button>
         </div>
         {

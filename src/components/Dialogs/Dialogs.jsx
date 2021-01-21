@@ -5,14 +5,13 @@ import Message from "./Message";
 import { addNewMessageActionCreator, onChangeMessageTextActionCreator } from "../../redux/state.js";
 
 const Dialogs = (props) => {
-    const textOfMessage = React.createRef();
 
     const addNewMessage = () => {
         props.dispatch(addNewMessageActionCreator());
     };
 
-    const onChangeMessageText = () => {
-        let textFromTextare = textOfMessage.current.value;
+    const onChangeMessageText = (event) => {
+        let textFromTextare = event.target.value;
         props.dispatch(onChangeMessageTextActionCreator(textFromTextare));
     };
 
@@ -28,18 +27,19 @@ const Dialogs = (props) => {
                 }
             </div>
             <div className = {style.messages}>
-                {
-                    props.dialogsPage.listOfAllMessages.map( (item) => {
-                        return (
-                            <Message id = {item.id} text={item.text} />
-                        );
-                    })
-                }
-            </div>
-            <div>
-                <textarea ref={ textOfMessage } onChange={onChangeMessageText} 
-                value={props.dialogsPage.newMessageText} />
-                <button onClick={ addNewMessage }>OK</button>
+                <div>
+                    {
+                        props.dialogsPage.listOfAllMessages.map((item) => {
+                            return (
+                                <Message id={item.id} text={item.text} />
+                            );
+                        })
+                    }
+                </div>
+                <div>
+                    <textarea onChange={onChangeMessageText} value={props.dialogsPage.newMessageText} />
+                    <button onClick={addNewMessage}>OK</button>
+                </div>
             </div>
         </div>
     );
