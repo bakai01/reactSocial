@@ -42,7 +42,7 @@ const store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-
+    
     dispatch(action) {
         profilePageReducer(this.getState().profilePage, action);
         dialogsPageReducer(this.getState().dialogsPage, action);
@@ -52,4 +52,3 @@ const store = {
     }
 };
 
-export default store;

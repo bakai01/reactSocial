@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import store from "./redux/state";
+import store from "./redux/storeRedux";
 import App from "./components/App";
 
 const renderEntireTree = () => {
@@ -11,6 +11,7 @@ const renderEntireTree = () => {
         </React.StrictMode>,
         document.getElementById("root")
     );
+    console.log(store);
 };
 
 renderEntireTree();

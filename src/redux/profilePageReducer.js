@@ -1,7 +1,12 @@
 const ADD_NEW_POST = "ADD-NEW-POST";
 const UPDATE_POST_OF_TEXT = "UPDATE-POST-OF-TEXT";
 
-const profilePageReducer = (profilePageState, action) => {
+const initialState = {
+    listOfAllPosts: [{ id: 0, text: "hello, world", likesCount: 23 }],
+    newPostText: ""
+};
+
+const profilePageReducer = (profilePageState = initialState, action) => {
     const getLastPostId = () => {
         let postList = profilePageState.listOfAllPosts;
         let i = postList[postList.length - 1].id;
