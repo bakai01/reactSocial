@@ -7,3 +7,30 @@
 .messages {
     background-color: #000;
 }
+
+.textArea {
+    width: 100%;
+    height: 3rem;
+    margin-top: 20px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+.btn__wrapper {
+    text-align: right;
+}
+
+.btn {
+    background-color: #50b5ff;
+    border: none;
+    color: #fff;
+    padding: .4rem 3rem;
+    text-decoration: none;
+    margin: 4px 2px;
+    border-radius: 6px;
+    font-size: 1.3rem;
+}

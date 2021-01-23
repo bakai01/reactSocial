@@ -27,8 +27,8 @@ const Dialogs = (props) => {
                     })
                 }
             </div>
-            <div className = {style.messages}>
-                <div>
+            <div>
+                <div className = {style.messages}>
                     {
                         props.dialogsPage.listOfAllMessages.map((item) => {
                             return (
@@ -38,8 +38,11 @@ const Dialogs = (props) => {
                     }
                 </div>
                 <div>
-                    <textarea onChange={onChangeMessageText} value={props.dialogsPage.newMessageText} />
-                    <button onClick={addNewMessage}>OK</button>
+                    <textarea className={style.textArea} 
+                        onChange={onChangeMessageText} value={props.dialogsPage.newMessageText} />
+                    <div className={style.btn__wrapper}>
+                        <button className={style.btn} onClick={addNewMessage}>Send</button>
+                    </div>
                 </div>
             </div>
         </div>

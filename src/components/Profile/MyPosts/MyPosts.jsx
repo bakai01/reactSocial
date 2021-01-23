@@ -18,8 +18,11 @@ const MyPosts = (props) => {
       <div className = {style.l}>
         <h3>My posts</h3>
         <div>
-          <textarea onChange={updatePostOfText} value={props.profilePage.newPostText} />
-          <button onClick = { addPost }>Publish</button>
+          <textarea className={style.textArea}
+            onChange={updatePostOfText} value={props.profilePage.newPostText} />
+          <div>
+            <button className={style.btn} onClick = { addPost }>Publish</button>
+          </div>
         </div>
         {
           props.profilePage.listOfAllPosts.map( (item) => {
