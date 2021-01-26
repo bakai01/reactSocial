@@ -3,28 +3,28 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 import "./app.css";
 import Header from "../Header";
-import Sidebar from "../Sidebar";
+import SidebarContainer from "../Sidebar/SidebarContainer";
 import Profile from "../Profile";
-import Dialogs from "../Dialogs";
 import News from "../News";
 import Music from "../Music";
 import Settings from"../Settings";
+import DialogsContainer from "../Dialogs/DialogsContainer";
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app__wrapper">
       <Header />
-      <Sidebar state={props.state.sideBar} />
+      <SidebarContainer store={props.store} />
       <div className="wrapper__content">
         <Route path="/profile" render = { () => {
           return (
-            <Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />
+            <Profile store={props.store} />
           );
         } } />
         <Route path="/dialogs" render = { () => {
           return (
-            <Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch} />
+            <DialogsContainer store={props.store}/>
           );
         }} />
         <Route path="/news" component={News} />

@@ -1,21 +1,20 @@
 import React from "react";
 import Post from "./Post";
 import style from "./MyPosts.module.css";
-import {addPostActionCreator, updatePostOfTextActionCreator} from "../../../redux/profilePageReducer";
 
 const MyPosts = (props) => {
 
   const addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
   };
 
   const updatePostOfText = (event) => {
     let textFromTextare = event.target.value;
-    props.dispatch(updatePostOfTextActionCreator(textFromTextare));
+    props.updatePostOfText(textFromTextare);
   };
   
   return (
-      <div className = {style.l}>
+      <div>
         <h3>My posts</h3>
         <div>
           <textarea className={style.textArea}

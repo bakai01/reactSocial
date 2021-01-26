@@ -1,2 +1,2 @@
 # reactSocial
-Social network developed in ReactJS for practice
+Social network developed in ReactJS + Redux for practice

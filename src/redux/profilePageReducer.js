@@ -23,7 +23,6 @@ const profilePageReducer = (profilePageState = initialState, action) => {
     
             profilePageState.listOfAllPosts.push(newPost);
             profilePageState.newPostText = "";
-            console.log(profilePageState);
             return profilePageState;
 
         case UPDATE_POST_OF_TEXT:
