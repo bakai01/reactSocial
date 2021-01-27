@@ -1,10 +1,15 @@
 import React from "react";
+import myContext from "../../Context";
 import Sidebar from "./Sidebar";
 
-const SidebarContainer = (props) => {
-  return (
-    <Sidebar state={props.store.getState().sideBar}/>
-  );
+const SidebarContainer = () => {
+    return (
+        <myContext.Consumer>
+            {
+                store => <Sidebar state={store.getState().sideBar} />
+            }
+        </myContext.Consumer>
+    );
 }
 
 export default SidebarContainer;

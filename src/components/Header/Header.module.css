@@ -1,12 +1,11 @@
 .header {
-  background-color: #1e2769;
-  grid-area: header;
-  border-radius: 15px;
-  display: flex;
-  align-items: center
+    background-color: #1e2769;
+    grid-area: header;
+    border-radius: 15px;
+    display: flex;
+    align-items: center
 }
 
 .img {
-  width: 100px;
-  
+    width: 100px;
 }

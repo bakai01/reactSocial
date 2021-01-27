@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import store from "./redux/storeRedux";
 import App from "./components/App";
+import myContext from "./Context";
 
 const renderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App store={store} />
+            <myContext.Provider value={store}>
+                <App />
+            </myContext.Provider>
         </React.StrictMode>,
         document.getElementById("root")
     );

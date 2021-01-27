@@ -3,15 +3,15 @@ import style from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = (props) => {
+const Profile = () => {
 
-  return (
-    <main className={style.main}>
-      <ProfileInfo />
+    return (
+        <main className={style.main}>
+            <ProfileInfo />
 
-      <MyPostsContainer store={props.store} />
-    </main>
-  );
+            <MyPostsContainer />
+        </main>
+    );
 }
 
 export default Profile;
