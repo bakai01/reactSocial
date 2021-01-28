@@ -14,20 +14,32 @@ const profilePageReducer = (profilePageState = initialState, action) => {
     };
 
     switch (action.type) {
-        case ADD_NEW_POST:
+        case ADD_NEW_POST: {
             const newPost = {
                 id: getLastPostId(),
                 text: profilePageState.newPostText,
                 likesCount: 0
             };
-    
-            profilePageState.listOfAllPosts.push(newPost);
-            profilePageState.newPostText = "";
-            return profilePageState;
 
-        case UPDATE_POST_OF_TEXT:
-            profilePageState.newPostText = action.newWordInTextarea;
-            return profilePageState;
+            let copyState = {};
+
+            copyState = {...profilePageState};
+            copyState.listOfAllPosts = [...profilePageState.listOfAllPosts];
+            copyState.listOfAllPosts.push(newPost);
+            copyState.newPostText = "";
+            console.log(copyState);
+            return copyState;
+        }
+            
+
+        case UPDATE_POST_OF_TEXT: {
+            let copyState = {};
+            
+            copyState = {...profilePageState};
+            copyState.newPostText = action.newWordInTextarea;
+            return copyState;
+        }
+            
 
         default:
             return profilePageState;

@@ -25,19 +25,27 @@ const dialogsPageReducer = (dialogsPageState = initialState, action) => {
     };
 
     switch (action.type) {
-        case ADD_NEW_MESSAGE:
+        case ADD_NEW_MESSAGE: {
             const newMessage = {
                 id: getLastMessageId(),
                 text: dialogsPageState.newMessageText
             };
-    
-            dialogsPageState.listOfAllMessages.push(newMessage);
-            dialogsPageState.newMessageText = "";
-            return dialogsPageState;
+            
+            let copyState = {...dialogsPageState};
+            copyState.listOfAllMessages = [...dialogsPageState.listOfAllMessages];
 
-        case UPDATE_MESSAGE_OF_TEXT:
-            dialogsPageState.newMessageText = action.newWordInTextarea;
-            return dialogsPageState;
+            copyState.listOfAllMessages.push(newMessage);
+            copyState.newMessageText = "";
+            return copyState;
+        }
+            
+
+        case UPDATE_MESSAGE_OF_TEXT: {
+            let copyState = {...dialogsPageState};
+
+            copyState.newMessageText = action.newWordInTextarea;
+            return copyState;
+        }
 
         default:
             return dialogsPageState;

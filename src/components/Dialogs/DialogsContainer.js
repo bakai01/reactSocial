@@ -1,5 +1,3 @@
-import React from "react";
-import myContext from "../../Context";
 import { addNewMessageActionCreator, onChangeMessageTextActionCreator } from 
 "../../redux/dialogsPageReducer";
 import Dialogs from "./Dialogs";
