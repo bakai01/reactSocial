@@ -5,9 +5,15 @@ import style from "./Post.module.css";
 const Post = (props) => {
     return (
         <div className={style.post}>
-            <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_avatar_child_kid-512.png" alt="avatar" />
-            <span>{props.text} </span>
-            <span>{props.likesCount}</span>
+            <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/girl_avatar_child_kid-512.png" 
+            alt="avatar" />
+            <div className={style.post__info}>
+                <span className={style.text} >{props.text}</span>
+                <div className={style.text__like}>
+                    <i className="fas fa-heart"></i>
+                    <span className={style.likes} >{props.likesCount}</span>
+                </div>
+            </div>
         </div>
     );
 }

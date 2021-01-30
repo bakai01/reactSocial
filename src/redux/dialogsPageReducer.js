@@ -31,20 +31,20 @@ const dialogsPageReducer = (dialogsPageState = initialState, action) => {
                 text: dialogsPageState.newMessageText
             };
             
-            let copyState = {...dialogsPageState};
-            copyState.listOfAllMessages = [...dialogsPageState.listOfAllMessages];
+            let stateCopy = {...dialogsPageState};
+            stateCopy.listOfAllMessages = [...dialogsPageState.listOfAllMessages];
 
-            copyState.listOfAllMessages.push(newMessage);
-            copyState.newMessageText = "";
-            return copyState;
+            stateCopy.listOfAllMessages.push(newMessage);
+            stateCopy.newMessageText = "";
+            return stateCopy;
         }
             
 
         case UPDATE_MESSAGE_OF_TEXT: {
-            let copyState = {...dialogsPageState};
+            let stateCopy = {...dialogsPageState};
 
-            copyState.newMessageText = action.newWordInTextarea;
-            return copyState;
+            stateCopy.newMessageText = action.newWordInTextarea;
+            return stateCopy;
         }
 
         default:

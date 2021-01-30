@@ -6,10 +6,10 @@
         "sideBar main";
 
     grid-template-rows: 120px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 30px;
+    grid-template-columns: 2fr 9fr;
+    grid-gap: 40px;
 
-    width: 97%;
+    width: 80%;
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;

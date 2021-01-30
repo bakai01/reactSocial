@@ -21,23 +21,22 @@ const profilePageReducer = (profilePageState = initialState, action) => {
                 likesCount: 0
             };
 
-            let copyState = {};
+            let stateCopy = {};
 
-            copyState = {...profilePageState};
-            copyState.listOfAllPosts = [...profilePageState.listOfAllPosts];
-            copyState.listOfAllPosts.push(newPost);
-            copyState.newPostText = "";
-            console.log(copyState);
-            return copyState;
+            stateCopy = {...profilePageState};
+            stateCopy.listOfAllPosts = [...profilePageState.listOfAllPosts];
+            stateCopy.listOfAllPosts.push(newPost);
+            stateCopy.newPostText = "";
+            return stateCopy;
         }
             
 
         case UPDATE_POST_OF_TEXT: {
-            let copyState = {};
+            let stateCopy = {};
             
-            copyState = {...profilePageState};
-            copyState.newPostText = action.newWordInTextarea;
-            return copyState;
+            stateCopy = {...profilePageState};
+            stateCopy.newPostText = action.newWordInTextarea;
+            return stateCopy;
         }
             
 
