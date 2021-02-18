@@ -21,24 +21,19 @@ const profilePageReducer = (profilePageState = initialState, action) => {
                 likesCount: 0
             };
 
-            let stateCopy = {};
-
-            stateCopy = {...profilePageState};
-            stateCopy.listOfAllPosts = [...profilePageState.listOfAllPosts];
-            stateCopy.listOfAllPosts.push(newPost);
-            stateCopy.newPostText = "";
-            return stateCopy;
-        }
-            
+            return {
+                ...profilePageState,
+                listOfAllPosts: [...profilePageState.listOfAllPosts, newPost],
+                newPostText: ""
+            }
+        }   
 
         case UPDATE_POST_OF_TEXT: {
-            let stateCopy = {};
-            
-            stateCopy = {...profilePageState};
-            stateCopy.newPostText = action.newWordInTextarea;
-            return stateCopy;
+            return {
+                ...profilePageState,
+                newPostText: action.newWordInTextarea
+            };
         }
-            
 
         default:
             return profilePageState;

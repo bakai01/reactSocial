@@ -30,21 +30,20 @@ const dialogsPageReducer = (dialogsPageState = initialState, action) => {
                 id: getLastMessageId(),
                 text: dialogsPageState.newMessageText
             };
-            
-            let stateCopy = {...dialogsPageState};
-            stateCopy.listOfAllMessages = [...dialogsPageState.listOfAllMessages];
 
-            stateCopy.listOfAllMessages.push(newMessage);
-            stateCopy.newMessageText = "";
-            return stateCopy;
-        }
+            return {
+                ...dialogsPageState,
+                listOfAllMessages: [...dialogsPageState.listOfAllMessages, newMessage],
+                newMessageText: "",
+            };
             
+        }
 
         case UPDATE_MESSAGE_OF_TEXT: {
-            let stateCopy = {...dialogsPageState};
-
-            stateCopy.newMessageText = action.newWordInTextarea;
-            return stateCopy;
+            return {
+                ...dialogsPageState,
+                newMessageText: action.newWordInTextarea
+            };
         }
 
         default:
@@ -59,3 +58,4 @@ export const onChangeMessageTextActionCreator = (textOfMessage) => (
 );
 
 export default dialogsPageReducer;
+
