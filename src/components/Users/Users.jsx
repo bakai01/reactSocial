@@ -28,10 +28,10 @@ const Users = (props) => {
                         </div>
 
                         {
-                            item.followed 
+                            item.followed
                                 ? <div className={style.floating__icon} onClick={() => { props.unfollow(item.id) }} >
                                     <i className="fa fa-plus" aria-hidden="true"></i>
-                                  </div>
+                                </div>
 
                                 : <div className={style.btn} onClick={() => { props.follow(item.id) }} >follow</div>
                         }
