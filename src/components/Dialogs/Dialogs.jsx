@@ -30,11 +30,12 @@ const Dialogs = (props) => {
                     {
                         props.dialogsPage.listOfAllMessages.map((item) => {
                             return (
-                                <Message id={item.id} text={item.text} />
+                                <Message key={item.id} text={item.text} />
                             );
                         })
                     }
                 </div>
+                
                 <div>
                     <textarea className={style.textArea} 
                         onChange={changeMessageText} value={props.dialogsPage.newMessageText} />

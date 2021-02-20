@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import FriendList from "./FriendList";
 
 import style from "./Sidebar.module.css";
 
@@ -25,14 +26,12 @@ const Sidebar = (props) => {
             </ul>
 
             <h4>Friends</h4>
+
             <div className={style.friends}>
                 {
                     props.state.friendList.map((item) => {
                         return (
-                            <div className={style.mas__friends}>
-                                <img className={style.img__ava} src="https://avatarfiles.alphacoders.com/126/126244.jpg" alt="ava of friend" />
-                                <span>{item.name}</span>
-                            </div>
+                            <FriendList key={item.id} name={item.name} />
                         );
                     })
                 }
