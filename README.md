@@ -2,6 +2,6 @@
 
 Social network developed in ReactJS + Redux
 
-### `npm start`
+### `npm install` THEN `npm start`
 
 type this comand, for starting app and enjoy :)
