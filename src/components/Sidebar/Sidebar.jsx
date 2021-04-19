@@ -9,19 +9,34 @@ const Sidebar = (props) => {
         <nav className={style.menu}>
             <ul className={style.list}>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/profile">Profile</NavLink>
+                    <NavLink className={style.link} activeClassName={style.active} to="/profile">
+                        <i className="far fa-user"></i>
+                        Profile
+                    </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/dialogs">Messages</NavLink>
+                    <NavLink className={style.link} activeClassName={style.active} to="/dialogs">
+                        <i className="fas fa-comments"></i>
+                        Messages
+                    </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/news">News</NavLink>
+                    <NavLink className={style.link} activeClassName={style.active} to="/news">
+                        <i className="fas fa-newspaper"></i>
+                        News
+                    </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/music">Music</NavLink>
+                    <NavLink className={style.link} activeClassName={style.active} to="/music">
+                        <i className="fab fa-spotify"></i>
+                        Music
+                    </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/settings">Settings</NavLink>
+                    <NavLink className={style.link} activeClassName={style.active} to="/settings">
+                    <i className="fab fa-untappd"></i>
+                        Settings
+                    </NavLink>
                 </li>
             </ul>
 

@@ -2,14 +2,17 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import "./app.css";
-import Header from "../Header";
-import SidebarContainer from "../Sidebar/SidebarContainer";
-import Profile from "../Profile";
-import News from "../News";
-import Music from "../Music";
-import Settings from "../Settings";
-import DialogsContainer from "../Dialogs/DialogsContainer";
-import UsersContainer from "../Users/UsersContainer";
+
+import {
+    Header,
+    SidebarContainer,
+    Profile,
+    News,
+    Music,
+    Settings,
+    DialogsContainer,
+    UsersContainer
+} from "../../components";
 
 const App = () => {
     return (
@@ -18,7 +21,7 @@ const App = () => {
                 <Header />
                 <SidebarContainer />
                 <div className="wrapper__content">
-                    <Route path="/profile" render={ () => <Profile /> } />
+                    <Route exact path="/profile" render={ () => <Profile /> } />
                     <Route path="/dialogs" render={ () => <DialogsContainer /> } />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
@@ -27,7 +30,7 @@ const App = () => {
                 </div>
             </div>
         </BrowserRouter>
-    );
+    )
 };
 
 export default App;

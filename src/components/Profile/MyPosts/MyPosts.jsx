@@ -1,5 +1,7 @@
 import React from "react";
+
 import Post from "./Post";
+
 import style from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
@@ -14,7 +16,7 @@ const MyPosts = (props) => {
     };
 
     return (
-        <div>
+        <div className={style.posts}>
             <h3>My posts</h3>
             <div>
                 <textarea className={style.textArea}
@@ -26,7 +28,7 @@ const MyPosts = (props) => {
             {
                 props.profilePage.listOfAllPosts.map((item) => {
                     return (
-                        <Post text={item.text} likesCount={item.likesCount} />
+                        <Post key={item.id} text={item.text} likesCount={item.likesCount} />
                     );
                 })
             }
