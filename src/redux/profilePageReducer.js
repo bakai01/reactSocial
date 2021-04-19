@@ -15,18 +15,25 @@ const profilePageReducer = (profilePageState = initialState, action) => {
 
     switch (action.type) {
         case ADD_NEW_POST: {
-            const newPost = {
-                id: getLastPostId(),
-                text: profilePageState.newPostText,
-                likesCount: 0
-            };
+            if (profilePageState.newPostText) {
+                const newPost = {
+                    id: getLastPostId(),
+                    text: profilePageState.newPostText,
+                    likesCount: 0
+                };
 
-            return {
-                ...profilePageState,
-                listOfAllPosts: [...profilePageState.listOfAllPosts, newPost],
-                newPostText: ""
+                return {
+                    ...profilePageState,
+                    listOfAllPosts: [...profilePageState.listOfAllPosts, newPost],
+                    newPostText: ""
+                }
             }
-        }   
+
+            else {
+                alert("Введите данные!!!");
+                return profilePageState;
+            }
+        }
 
         case UPDATE_POST_OF_TEXT: {
             return {

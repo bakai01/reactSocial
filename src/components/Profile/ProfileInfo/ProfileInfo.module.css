@@ -2,6 +2,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 200px;
+    margin-bottom: 50px;
 }
 
 .main__img {
@@ -19,4 +20,8 @@
     flex-shrink: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.profile-about {
+    
 }

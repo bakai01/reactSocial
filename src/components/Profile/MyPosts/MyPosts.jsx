@@ -7,7 +7,7 @@ import style from "./MyPosts.module.css";
 const MyPosts = (props) => {
 
     const addPost = () => {
-        props.addPost();
+        props.onAddPost();
     };
 
     const updatePostOfText = (event) => {
@@ -21,7 +21,7 @@ const MyPosts = (props) => {
             <div>
                 <textarea className={style.textArea}
                     onChange={updatePostOfText} value={props.profilePage.newPostText} />
-                <div>
+                <div className={style.btn__block}>
                     <button className={style.btn} onClick={addPost}>Publish</button>
                 </div>
             </div>
