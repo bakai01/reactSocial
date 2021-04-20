@@ -3,10 +3,11 @@
     grid-area: header;
     border-radius: 15px;
     display: flex;
-    align-items: center
+    align-items: center;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 22%);
 }
 
 .img {
     width: 100px;
-    margin-left: 16px;
+    margin-left: 25px;
 }

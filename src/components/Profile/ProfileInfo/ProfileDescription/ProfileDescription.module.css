@@ -1,0 +1,22 @@
+.profile-about {
+    box-sizing: border-box;
+    display: flex;
+}
+
+.profile__img {
+    position: relative;
+    top: -105px;
+    left: 60px;
+    width: 200px;
+}
+
+.profile__img img {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 100px;
+}
+
+h2 {
+    margin-left: 120px;
+    margin-top: -20px;
+}

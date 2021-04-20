@@ -36,7 +36,6 @@ const dialogsPageReducer = (dialogsPageState = initialState, action) => {
                 listOfAllMessages: [...dialogsPageState.listOfAllMessages, newMessage],
                 newMessageText: "",
             };
-            
         }
 
         case UPDATE_MESSAGE_OF_TEXT: {
