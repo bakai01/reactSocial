@@ -25,7 +25,7 @@ const Dialogs = (props) => {
                     })
                 }
             </div>
-            <div>
+            <div className={style.right__side}>
                 <div className = {style.messages}>
                     {
                         props.dialogsPage.listOfAllMessages.map((item) => {

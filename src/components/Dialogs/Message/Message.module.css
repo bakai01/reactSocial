@@ -1,3 +1,16 @@
 .message {
     padding: 10px;
 }
+
+.message p {
+    background-color: rgba(0, 0, 37, 0.383);
+    padding: 9px 15px;
+    max-width: 90%;
+    word-break: break-all;
+    line-height: 30px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: inline-block;
+    margin: 0;
+}

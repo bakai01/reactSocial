@@ -1,11 +1,20 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 160px 10fr;
     font-size: 20px;
+    padding: 20px;
 }
 
+
+
 .messages {
-    background-color: #000;
+    max-height: 331px;
+    background-color: rgba(32, 61, 66, 0.171);
+    height: 331px;
+    border-radius: 6px;
+    overflow: auto;
+    box-sizing: border-box;
+    font-size: 17px;
 }
 
 .textArea {
@@ -29,10 +38,10 @@
     background-color: #50b5ff;
     border: none;
     color: #fff;
-    padding: .4rem 3rem;
+    padding: 8px 45px;
     text-decoration: none;
     margin: 4px 2px;
     border-radius: 6px;
-    font-size: 1.3rem;
+    font-size: 16px;
     outline: none;
 }
