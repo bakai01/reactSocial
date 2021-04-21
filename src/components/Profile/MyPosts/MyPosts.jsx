@@ -19,8 +19,12 @@ const MyPosts = (props) => {
         <div className={style.posts}>
             <h3>My posts</h3>
             <div>
-                <textarea className={style.textArea}
-                    onChange={updatePostOfText} value={props.profilePage.newPostText} />
+                <textarea
+                    className={style.textArea}
+                    onChange={updatePostOfText}
+                    value={props.profilePage.newPostText}
+                    placeholder="Your news..." 
+                />
                 <div className={style.btn__block}>
                     <button className={style.btn} onClick={addPost}>Publish</button>
                 </div>

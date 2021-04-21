@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "./ProfileDescription.module.css";
 
-const ProfileDescription = () => {
+const ProfileDescription = (props) => {
     return (
         <div className={style['profile-about']}>
             <div className={style.profile__img}>
@@ -10,7 +10,12 @@ const ProfileDescription = () => {
             </div>
 
             <div className={style.profile__description}>
-                <h2>Kukold</h2>
+                <h2>Buben dologupen</h2>
+
+                <span>Date of Birth: 22 august</span>
+                <span>City: Minsk</span>
+                <span>Status: Belarus</span>
+                <span>Education: KSTU</span>
             </div>
         </div>
     );
