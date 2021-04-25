@@ -3,13 +3,13 @@ import { addNewMessageActionCreator, onChangeMessageTextActionCreator } from
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         dialogsPage: state.dialogsPage
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         addNewMessage: () => {
             const action = addNewMessageActionCreator();

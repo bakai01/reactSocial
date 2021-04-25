@@ -2,10 +2,10 @@ import React from "react";
 
 import style from "./Message.module.css";
 
-const Message = (props) => {
+const Message = ({ text }) => {
     return (
         <div className={style.message}>
-            <p>{props.text}</p>
+            <p>{text}</p>
         </div>
     );
 };

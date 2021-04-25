@@ -2,9 +2,9 @@ import React from "react";
 
 import style from "./Users.module.css";
 
-const Users = (props) => {
+const Users = ({ usersPage, unfollow, follow }) => {
     return (
-        props.usersPage.map(item => {
+        usersPage.map(item => {
             return (
                 <div className={style.wrapper} key={item.id}>
                     <div className={style.container}>
@@ -29,11 +29,11 @@ const Users = (props) => {
 
                         {
                             item.followed
-                                ? <div className={style.floating__icon} onClick={() => { props.unfollow(item.id) }} >
+                                ? <div className={style.floating__icon} onClick={() => { unfollow(item.id) }} >
                                     <i className="fa fa-plus" aria-hidden="true"></i>
                                 </div>
 
-                                : <div className={style.btn} onClick={() => { props.follow(item.id) }} >follow</div>
+                                : <div className={style.btn} onClick={() => { follow(item.id) }} >follow</div>
                         }
                     </div>
                 </div>

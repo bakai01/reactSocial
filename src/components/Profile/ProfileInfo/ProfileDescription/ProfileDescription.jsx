@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "./ProfileDescription.module.css";
 
-const ProfileDescription = (props) => {
+const ProfileDescription = () => {
     return (
         <div className={style['profile-about']}>
             <div className={style.profile__img}>

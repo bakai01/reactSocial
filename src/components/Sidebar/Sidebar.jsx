@@ -4,7 +4,7 @@ import FriendList from "./FriendList";
 
 import style from "./Sidebar.module.css";
 
-const Sidebar = (props) => {
+const Sidebar = ({ state }) => {
     return (
         <nav className={style.menu}>
             <ul className={style.list}>
@@ -44,7 +44,7 @@ const Sidebar = (props) => {
 
             <div className={style.friends}>
                 {
-                    props.state.friendList.map((item) => {
+                    state.friendList.map((item) => {
                         return (
                             <FriendList key={item.id} name={item.name} />
                         );

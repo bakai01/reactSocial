@@ -3,44 +3,47 @@ import style from "./Dialogs.module.css";
 import Dialog from "./Dialog";
 import Message from "./Message";
 
-const Dialogs = (props) => {
+const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
 
-    const addNewMessage = () => {
-        props.addNewMessage();
+    const onAddNewMessage = () => {
+        addNewMessage();
     };
 
-    const changeMessageText = (event) => {
+    const onChangeMessageText = (event) => {
         let textFromTextare = event.target.value;
-        props.changeMessageText(textFromTextare);
+        changeMessageText(textFromTextare);
     };
 
     return (
-        <div className = {style.dialogs}>
-            <div className = {style.dialogsItems}>
+        <div className={style.dialogs}>
+            <div className={style.dialogsItems}>
                 {
-                    props.dialogsPage.dialogData.map((item) => {
+                    dialogsPage.dialogData.map((item) => {
                         return (
-                            <Dialog key={item.id} id = {item.id} name = {item.name} />
+                            <Dialog key={item.id} id={item.id} name={item.name} />
                         );
                     })
                 }
             </div>
             <div className={style.right__side}>
-                <div className = {style.messages}>
+                <div className={style.messages}>
                     {
-                        props.dialogsPage.listOfAllMessages.map((item) => {
+                        dialogsPage.listOfAllMessages.map((item) => {
                             return (
                                 <Message key={item.id} text={item.text} />
                             );
                         })
                     }
                 </div>
-                
+
                 <div>
-                    <textarea className={style.textArea} 
-                        onChange={changeMessageText} value={props.dialogsPage.newMessageText} />
+                    <textarea
+                        className={style.textArea}
+                        onChange={onChangeMessageText}
+                        value={dialogsPage.newMessageText}
+                    />
                     <div className={style.btn__wrapper}>
-                        <button className={style.btn} onClick={addNewMessage}>Send</button>
+                        <button className={style.btn} onClick={onAddNewMessage}>Send</button>
                     </div>
                 </div>
             </div>

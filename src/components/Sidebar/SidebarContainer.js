@@ -1,13 +1,13 @@
 import Sidebar from "./Sidebar";
 import {connect} from "react-redux";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         state: state.sideBar
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {};
 };
 

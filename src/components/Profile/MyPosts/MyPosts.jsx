@@ -4,15 +4,15 @@ import Post from "./Post";
 
 import style from "./MyPosts.module.css";
 
-const MyPosts = (props) => {
+const MyPosts = ({onAddPost, updatePostOfText, profilePage }) => {
 
     const addPost = () => {
-        props.onAddPost();
+        onAddPost();
     };
 
-    const updatePostOfText = (event) => {
+    const onUpdatePostOfText = (event) => {
         let textFromTextare = event.target.value;
-        props.updatePostOfText(textFromTextare);
+        updatePostOfText(textFromTextare);
     };
 
     return (
@@ -21,8 +21,8 @@ const MyPosts = (props) => {
             <div>
                 <textarea
                     className={style.textArea}
-                    onChange={updatePostOfText}
-                    value={props.profilePage.newPostText}
+                    onChange={onUpdatePostOfText}
+                    value={profilePage.newPostText}
                     placeholder="Your news..." 
                 />
                 <div className={style.btn__block}>
@@ -30,7 +30,7 @@ const MyPosts = (props) => {
                 </div>
             </div>
             {
-                props.profilePage.listOfAllPosts.map((item) => {
+                profilePage.listOfAllPosts.map((item) => {
                     return (
                         <Post key={item.id} text={item.text} likesCount={item.likesCount} />
                     );
