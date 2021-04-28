@@ -6,9 +6,8 @@ import style from "./Users.module.css";
 import avatarPhoto from "../../assets/images/defaultAvatar.jpg";
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
 
+    componentDidMount() {
         axios
             .get("https://social-network.samuraijs.com/api/1.0/users")
             .then(({ data }) => {
@@ -17,7 +16,7 @@ class Users extends React.Component {
             .catch(() => {
                 console.log("Error");
             });
-    };
+    }
 
     render() {
         return (

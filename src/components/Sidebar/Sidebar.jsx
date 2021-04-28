@@ -21,6 +21,12 @@ const Sidebar = ({ state }) => {
                     </NavLink>
                 </li>
                 <li className={style.item}>
+                    <NavLink className={style.link} activeClassName={style.active} to="/users">
+                        <i className="fas fa-user-friends"></i>
+                        Users
+                    </NavLink>
+                </li>
+                <li className={style.item}>
                     <NavLink className={style.link} activeClassName={style.active} to="/news">
                         <i className="fas fa-newspaper"></i>
                         News
