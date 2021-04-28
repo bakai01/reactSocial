@@ -53,7 +53,7 @@ const dialogsPageReducer = (dialogsPageState = initialState, action) => {
 export const addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE });
 
 export const onChangeMessageTextActionCreator = (textOfMessage) => (
-    { type: UPDATE_MESSAGE_OF_TEXT, newWordInTextarea:  textOfMessage }
+    { type: UPDATE_MESSAGE_OF_TEXT, newWordInTextarea: textOfMessage }
 );
 
 export default dialogsPageReducer;

@@ -42,13 +42,13 @@
 .head p {
     font-size: 2rem;
     color: #444444;
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     margin: 0 auto;
 }
 
 .head span {
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #aaabaf;
     font-size: 1rem;
 }
@@ -58,7 +58,7 @@
 }
 
 .inner__data {
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 50%;
     float: left;
     text-align: left;
@@ -66,13 +66,13 @@
 }
 
 .inner__data p {
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.4rem;
     margin-bottom: 0;
 }
 
 .inner__data span {
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     color: #aaabaf;
@@ -86,7 +86,7 @@
     border-radius: 50%;
     cursor: pointer;
     margin-top: 6%;
-    right: 28.3%;
+    margin-left: 37.3%;
 }
 
 .floating__icon i {
@@ -106,7 +106,7 @@
     background: #50b5ff;
     padding: 6px 15px;
     border-radius: 50px;
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #fff;
     cursor: pointer;
     font-weight: 600;
