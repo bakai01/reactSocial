@@ -10,7 +10,6 @@ const Users = ({ usersPage, unfollow, follow, setUsers }) => {
         axios
             .get("https://social-network.samuraijs.com/api/1.0/users")
             .then(({ data }) => {
-                console.log(data);
                 setUsers(data.items)
             })
             .catch(() => {
