@@ -17,7 +17,6 @@ const usersPageReducer = (usersPageState = initialState, action) => {
             return { ...usersPageState, users: action.users };
         }
             
-
         case FOLLOW: {
             return {
                 ...usersPageState,
@@ -34,7 +33,6 @@ const usersPageReducer = (usersPageState = initialState, action) => {
             };
         }
 
-
         case UNFOLLOW: {
             return {
                 ...usersPageState,
@@ -50,7 +48,6 @@ const usersPageReducer = (usersPageState = initialState, action) => {
                 })
             };
         }
-            
 
         case SET_TOTAL_COUNT: {
             return {...usersPageState, totalUserCount: action.totalCount };
