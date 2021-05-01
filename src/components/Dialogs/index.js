@@ -1,3 +1,3 @@
-import Dialogs from "./Dialogs";
+import Dialogs from './Dialogs';
 
 export default Dialogs;

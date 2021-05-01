@@ -1,7 +1,7 @@
-import React from "react";
-import style from "./Dialogs.module.css";
-import Dialog from "./Dialog";
-import Message from "./Message";
+import React from 'react';
+import style from './Dialogs.module.css';
+import Dialog from './Dialog';
+import Message from './Message';
 
 const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
 

@@ -1,9 +1,9 @@
-const ADD_NEW_POST = "ADD-NEW-POST";
-const UPDATE_POST_OF_TEXT = "UPDATE-POST-OF-TEXT";
+const ADD_NEW_POST = 'ADD-NEW-POST';
+const UPDATE_POST_OF_TEXT = 'UPDATE-POST-OF-TEXT';
 
 const initialState = {
-    listOfAllPosts: [{ id: 0, text: "hello, world", likesCount: 23 }],
-    newPostText: ""
+    listOfAllPosts: [{ id: 0, text: 'hello, world', likesCount: 23 }],
+    newPostText: ''
 };
 
 const profilePageReducer = (profilePageState = initialState, action) => {
@@ -25,12 +25,12 @@ const profilePageReducer = (profilePageState = initialState, action) => {
                 return {
                     ...profilePageState,
                     listOfAllPosts: [...profilePageState.listOfAllPosts, newPost],
-                    newPostText: ""
+                    newPostText: ''
                 }
             }
 
             else {
-                alert("Введите данные!!!");
+                alert('Введите данные!!!');
                 return profilePageState;
             }
         }

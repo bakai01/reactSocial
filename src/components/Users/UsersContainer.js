@@ -1,10 +1,10 @@
-import React from "react";
-import * as axios from "axios";
-import { connect } from "react-redux";
+import React from 'react';
+import * as axios from 'axios';
+import { connect } from 'react-redux';
 
-import Users from "./Users";
+import Users from './Users';
 
-import { followAC, unfollowAC, setUsersAC, setTotalUserCountAC, setCurrentPageAC } from "../../redux/usersPageReducer";
+import { followAC, unfollowAC, setUsersAC, setTotalUserCountAC, setCurrentPageAC } from '../../redux/usersPageReducer';
 
 class UsersAPI extends React.Component {
 
@@ -17,7 +17,7 @@ class UsersAPI extends React.Component {
             })
             .catch(response => {
                 console.log(response);
-                console.log("Error when requesting to the server");
+                console.log('Error when requesting to the server');
             });
     }
 
@@ -29,13 +29,12 @@ class UsersAPI extends React.Component {
                 this.props.setCurrentPage(pageNumber);
             })
             .catch(() => {
-                console.log("Error when changing the page");
+                console.log('Error when changing the page');
             });
     }
 
     render() {
         return <Users
-            currentPage={this.props.currentPage}
             onChangePage={this.onChangePage}
             usersPage={this.props.usersPage}
             unfollow={this.props.unfollow}

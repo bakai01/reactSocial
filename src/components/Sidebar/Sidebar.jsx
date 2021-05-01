@@ -1,46 +1,46 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import FriendList from "./FriendList";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import FriendList from './FriendList';
 
-import style from "./Sidebar.module.css";
+import style from './Sidebar.module.css';
 
 const Sidebar = ({ state }) => {
     return (
         <nav className={style.menu}>
             <ul className={style.list}>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/profile">
-                        <i className="far fa-user"></i>
+                    <NavLink className={style.link} activeClassName={style.active} to='/profile'>
+                        <i className='far fa-user'></i>
                         Profile
                     </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/dialogs">
-                        <i className="fas fa-comments"></i>
+                    <NavLink className={style.link} activeClassName={style.active} to='/dialogs'>
+                        <i className='fas fa-comments'></i>
                         Messages
                     </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/users">
-                        <i className="fas fa-user-friends"></i>
+                    <NavLink className={style.link} activeClassName={style.active} to='/users'>
+                        <i className='fas fa-user-friends'></i>
                         Users
                     </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/news">
-                        <i className="fas fa-newspaper"></i>
+                    <NavLink className={style.link} activeClassName={style.active} to='/news'>
+                        <i className='fas fa-newspaper'></i>
                         News
                     </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/music">
-                        <i className="fab fa-spotify"></i>
+                    <NavLink className={style.link} activeClassName={style.active} to='/music'>
+                        <i className='fab fa-spotify'></i>
                         Music
                     </NavLink>
                 </li>
                 <li className={style.item}>
-                    <NavLink className={style.link} activeClassName={style.active} to="/settings">
-                    <i className="fab fa-untappd"></i>
+                    <NavLink className={style.link} activeClassName={style.active} to='/settings'>
+                    <i className='fab fa-untappd'></i>
                         Settings
                     </NavLink>
                 </li>

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Post from "./Post";
+import Post from './Post';
 
-import style from "./MyPosts.module.css";
+import style from './MyPosts.module.css';
 
 const MyPosts = ({onAddPost, updatePostOfText, profilePage }) => {
 
@@ -23,7 +23,7 @@ const MyPosts = ({onAddPost, updatePostOfText, profilePage }) => {
                     className={style.textArea}
                     onChange={onUpdatePostOfText}
                     value={profilePage.newPostText}
-                    placeholder="Your news..." 
+                    placeholder='Your news...' 
                 />
                 <div className={style.btn__block}>
                     <button className={style.btn} onClick={addPost}>Publish</button>

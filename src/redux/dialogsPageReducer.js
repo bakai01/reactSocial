@@ -1,20 +1,20 @@
-const ADD_NEW_MESSAGE = "ADD-NEW-MESSAGE";
-const UPDATE_MESSAGE_OF_TEXT = "UPDATE-MESSAGE-OF-TEXT";
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const UPDATE_MESSAGE_OF_TEXT = 'UPDATE-MESSAGE-OF-TEXT';
 
 const initialState = {
     dialogData: [
-        { id: 0, name: "Bakai" },
-        { id: 1, name: "Tom" },
-        { id: 2, name: "Edvard" },
-        { id: 3, name: "Nofear" },
-        { id: 4, name: "Bob" }
+        { id: 0, name: 'Bakai' },
+        { id: 1, name: 'Tom' },
+        { id: 2, name: 'Edvard' },
+        { id: 3, name: 'Nofear' },
+        { id: 4, name: 'Bob' }
     ],
     listOfAllMessages: [
-        { id: 0, text: "Hi" },
-        { id: 1, text: "Kuku" },
-        { id: 2, text: "Dubu" }
+        { id: 0, text: 'Hi' },
+        { id: 1, text: 'Kuku' },
+        { id: 2, text: 'Dubu' }
     ],
-    newMessageText: ""
+    newMessageText: ''
 };
 
 const dialogsPageReducer = (dialogsPageState = initialState, action) => {
@@ -34,7 +34,7 @@ const dialogsPageReducer = (dialogsPageState = initialState, action) => {
             return {
                 ...dialogsPageState,
                 listOfAllMessages: [...dialogsPageState.listOfAllMessages, newMessage],
-                newMessageText: "",
+                newMessageText: '',
             };
         }
 
