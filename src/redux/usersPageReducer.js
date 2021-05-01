@@ -3,12 +3,14 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_LOADING = 'SET_LOADING';
 
 const initialState = {
     users: [],
     pageSize: 5,
     totalUserCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isLoading: false
 };
 
 const usersPageReducer = (usersPageState = initialState, action) => {
@@ -57,19 +59,27 @@ const usersPageReducer = (usersPageState = initialState, action) => {
             return {...usersPageState, currentPage: action.pageNumber};
         }
 
+        case SET_LOADING: {
+            return {
+                ...usersPageState, isLoading: action.fetching
+            };
+        }
+
         default:
             return usersPageState;
     }
 };
 
-export const followAC = userId => ( { type: FOLLOW, userId } );
+export const follow = userId => ( { type: FOLLOW, userId } );
 
-export const unfollowAC = userId => ( { type: UNFOLLOW, userId } );
+export const unfollow = userId => ( { type: UNFOLLOW, userId } );
 
-export const setUsersAC = users => ( {type: SET_USERS, users} );
+export const setUsers = users => ( {type: SET_USERS, users} );
 
-export const setTotalUserCountAC = totalCount => ( {type: SET_TOTAL_COUNT, totalCount} );
+export const setTotalUserCount = totalCount => ( {type: SET_TOTAL_COUNT, totalCount} );
 
-export const setCurrentPageAC = pageNumber => ( {type: SET_CURRENT_PAGE, pageNumber} );
+export const setCurrentPage = pageNumber => ( {type: SET_CURRENT_PAGE, pageNumber} );
+
+export const setLoading = fetching => ( {type: SET_LOADING, fetching} );
 
 export default usersPageReducer;

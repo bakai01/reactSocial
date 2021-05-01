@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 
 import Users from './Users';
 
-import { followAC, unfollowAC, setUsersAC, setTotalUserCountAC, setCurrentPageAC } from '../../redux/usersPageReducer';
+import { follow, unfollow, setUsers, setTotalUserCount, setCurrentPage, setLoading } from '../../redux/usersPageReducer';
 
 class UsersAPI extends React.Component {
 
     componentDidMount() {
+        this.props.setLoading(true);
         axios
             .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
             .then(({ data }) => {
+                this.props.setLoading(false);
                 this.props.setUsers(data.items);
                 this.props.setTotalUserCount(data.totalCount);
             })
@@ -22,9 +24,11 @@ class UsersAPI extends React.Component {
     }
 
     onChangePage = pageNumber => {
+        this.props.setLoading(!this.props.isLoading);
         axios
             .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`)
             .then(({ data }) => {
+                this.props.setLoading(!this.props.isLoading);
                 this.props.setUsers(data.items);
                 this.props.setCurrentPage(pageNumber);
             })
@@ -41,6 +45,7 @@ class UsersAPI extends React.Component {
             follow={this.props.follow}
             totalUserCount={this.props.totalUserCount}
             pageSize={this.props.pageSize}
+            isLoading={this.props.isLoading}
         />;
     }
 }
@@ -50,30 +55,18 @@ const mapStateToProps = state => {
         usersPage: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUserCount: state.usersPage.totalUserCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isLoading: state.usersPage.isLoading
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        follow: userId => {
-            dispatch(followAC(userId));
-        },
-        unfollow: userId => {
-            dispatch(unfollowAC(userId));
-        },
-        setUsers: users => {
-            dispatch(setUsersAC(users));
-        },
-        setTotalUserCount: totalCount => {
-            dispatch(setTotalUserCountAC(totalCount));
-        },
-        setCurrentPage: pageNumber => {
-            dispatch(setCurrentPageAC(pageNumber));
-        }
-    };
-};
-
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
+const UsersContainer = connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setTotalUserCount,
+    setCurrentPage,
+    setLoading
+})(UsersAPI);
 
 export default UsersContainer;

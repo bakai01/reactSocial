@@ -4,8 +4,9 @@ import style from './Users.module.css';
 
 import avatarPhoto from '../../assets/images/defaultAvatar.jpg';
 import UsersPagination from './Pagination/UsersPagination';
+import Preloader from '../common/Preloader'; 
 
-const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, pageSize }) => {
+const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, pageSize, isLoading }) => {
     return (
         <div>
             <UsersPagination
@@ -13,6 +14,8 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                 onChangePage={onChangePage}
                 pageSize={pageSize}
             />
+
+            {isLoading && <Preloader />}
 
             {
                 usersPage.map(item => {

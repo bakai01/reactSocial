@@ -6,6 +6,8 @@ import style from './UsersPagination.module.css';
 const UsersPagination = ({ totalUserCount, pageSize, onChangePage }) => {
     const pagesCount = Math.ceil(totalUserCount / pageSize);
 
+    
+
     return (
         <div className={style.navigation__btn}>
             <ReactPaginate
