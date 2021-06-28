@@ -4,7 +4,10 @@ import ProfileDescription from './ProfileDescription';
 
 import style from './ProfileInfo.module.css';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ profile }) => {
+
+    console.log(profile)
+
     return (
         <div className={style.profile__wrapper}>
             <div className={style.img__wrapper}>

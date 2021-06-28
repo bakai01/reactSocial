@@ -1,49 +1,58 @@
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const UPDATE_POST_OF_TEXT = 'UPDATE-POST-OF-TEXT';
+const SET_PROFILE = 'SET_PROFILE';
 
 const initialState = {
+    profile: {},
     listOfAllPosts: [{ id: 0, text: 'hello, world', likesCount: 23 }],
     newPostText: ''
 };
 
-const profilePageReducer = (profilePageState = initialState, action) => {
+const profilePageReducer = (state = initialState, action) => {
     const getLastPostId = () => {
-        let postList = profilePageState.listOfAllPosts;
+        let postList = state.listOfAllPosts;
         let i = postList[postList.length - 1].id;
         return ++i;
     };
 
     switch (action.type) {
         case ADD_NEW_POST: {
-            if (profilePageState.newPostText) {
+            if (state.newPostText) {
                 const newPost = {
                     id: getLastPostId(),
-                    text: profilePageState.newPostText,
+                    text: state.newPostText,
                     likesCount: 0
                 };
 
                 return {
-                    ...profilePageState,
-                    listOfAllPosts: [...profilePageState.listOfAllPosts, newPost],
+                    ...state,
+                    listOfAllPosts: [...state.listOfAllPosts, newPost],
                     newPostText: ''
                 }
             }
 
             else {
                 alert('Введите данные!!!');
-                return profilePageState;
+                return state;
             }
         }
 
         case UPDATE_POST_OF_TEXT: {
             return {
-                ...profilePageState,
+                ...state,
                 newPostText: action.newWordInTextarea
             };
         }
 
+        case SET_PROFILE: {
+            return {
+                ...state,
+                profile: action.payload
+            };
+        }
+
         default:
-            return profilePageState;
+            return state;
     }
 };
 
@@ -52,5 +61,7 @@ export const addPostActionCreator = () => ({ type: ADD_NEW_POST });
 export const updatePostOfTextActionCreator = (textOfPost) => (
     { type: UPDATE_POST_OF_TEXT, newWordInTextarea: textOfPost }
 );
+
+export const setProfile = profile => ({type: SET_PROFILE, payload: profile})
 
 export default profilePageReducer;

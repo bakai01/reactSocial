@@ -6,7 +6,7 @@ import './app.css';
 import {
     Header,
     SidebarContainer,
-    Profile,
+    ProfileContainer,
     News,
     Music,
     Settings,
@@ -21,7 +21,7 @@ const App = () => {
                 <Header />
                 <SidebarContainer />
                 <div className='wrapper__content'>
-                    <Route path='/profile' render={ () => <Profile /> } />
+                    <Route path='/profile' render={ () => <ProfileContainer /> } />
                     <Route path='/dialogs' render={ () => <DialogsContainer /> } />
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />
