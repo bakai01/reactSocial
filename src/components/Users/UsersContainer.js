@@ -11,7 +11,7 @@ class UsersAPI extends React.Component {
     componentDidMount() {
         this.props.setLoading(true);
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=1`)
             .then(({ data }) => {
                 this.props.setLoading(false);
                 this.props.setUsers(data.items);
