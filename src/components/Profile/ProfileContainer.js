@@ -8,7 +8,9 @@ import { setProfile } from '../../redux/profilePageReducer'
 import { useParams } from 'react-router-dom'
 
 const ProfileContainer = ({ profile, setProfile }) => {
-    const { userId } = useParams()
+    let { userId } = useParams()
+
+    if (!userId) userId = 4
 
     useEffect(() => {
         axios

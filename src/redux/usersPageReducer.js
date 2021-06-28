@@ -1,9 +1,9 @@
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET-USERS';
-const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_LOADING = 'SET_LOADING';
+const FOLLOW = 'FOLLOW'
+const UNFOLLOW = 'UNFOLLOW'
+const SET_USERS = 'SET-USERS'
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_LOADING = 'SET_LOADING'
 
 const initialState = {
     users: [],
@@ -11,12 +11,12 @@ const initialState = {
     totalUserCount: 0,
     currentPage: 1,
     isLoading: false
-};
+}
 
 const usersPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS: {
-            return { ...state, users: action.users };
+            return { ...state, users: action.users }
         }
 
         case FOLLOW: {
@@ -30,9 +30,9 @@ const usersPageReducer = (state = initialState, action) => {
                         }
                     }
 
-                    return item;
+                    return item
                 })
-            };
+            }
         }
 
         case UNFOLLOW: {
@@ -46,40 +46,40 @@ const usersPageReducer = (state = initialState, action) => {
                         }
                     }
 
-                    return item;
+                    return item
                 })
-            };
+            }
         }
 
         case SET_TOTAL_COUNT: {
-            return {...state, totalUserCount: action.totalCount };
+            return {...state, totalUserCount: action.totalCount }
         }
 
         case SET_CURRENT_PAGE : {
-            return {...state, currentPage: action.pageNumber};
+            return {...state, currentPage: action.pageNumber}
         }
 
         case SET_LOADING: {
             return {
                 ...state, isLoading: action.fetching
-            };
+            }
         }
 
         default:
-            return state;
+            return state
     }
-};
+}
 
-export const follow = userId => ( { type: FOLLOW, userId } );
+export const follow = userId => ( { type: FOLLOW, userId } )
 
-export const unfollow = userId => ( { type: UNFOLLOW, userId } );
+export const unfollow = userId => ( { type: UNFOLLOW, userId } )
 
-export const setUsers = users => ( {type: SET_USERS, users} );
+export const setUsers = users => ( {type: SET_USERS, users} )
 
-export const setTotalUserCount = totalCount => ( {type: SET_TOTAL_COUNT, totalCount} );
+export const setTotalUserCount = totalCount => ( {type: SET_TOTAL_COUNT, totalCount} )
 
-export const setCurrentPage = pageNumber => ( {type: SET_CURRENT_PAGE, pageNumber} );
+export const setCurrentPage = pageNumber => ( {type: SET_CURRENT_PAGE, pageNumber} )
 
-export const setLoading = fetching => ( {type: SET_LOADING, fetching} );
+export const setLoading = fetching => ( {type: SET_LOADING, fetching} )
 
-export default usersPageReducer;
+export default usersPageReducer

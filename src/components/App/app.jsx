@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import './app.css';
 
@@ -12,7 +12,7 @@ import {
     Settings,
     DialogsContainer,
     UsersContainer
-} from '../../components';
+} from '../../components'
 
 const App = () => {
 
@@ -22,7 +22,7 @@ const App = () => {
                 <Header />
                 <SidebarContainer />
                 <div className='wrapper__content'>
-                    <Route path='/profile/:userId' render={() => <ProfileContainer />} />
+                    <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
                     <Route path='/dialogs' render={() => <DialogsContainer />} />
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />
@@ -32,6 +32,6 @@ const App = () => {
             </div>
         </BrowserRouter>
     )
-};
+}
 
-export default App;
+export default App
