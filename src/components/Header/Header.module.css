@@ -5,9 +5,37 @@
     display: flex;
     align-items: center;
     box-shadow: 2px 4px 4px rgb(0 0 0 / 22%);
+    justify-content: space-between;
 }
 
 .img {
     width: 100px;
     margin-left: 25px;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.849);
+    padding: 8px 50px;
+    text-decoration: none;
+    margin: .8rem 0 2rem 0;
+    border-radius: 9px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: .15s ease-in-out;
+    box-shadow: 0 10px 10px rgba(19, 19, 19, 0.19), 0 3px 3px rgba(36, 36, 36, 0.23);
+    margin: 0;
+    margin-right: 50px;
+}
+
+.btn:hover {
+    background-color: #11097e75;
+    color: rgb(223, 221, 221);
+}
+
+.btn:active {
+    background-color: #0e095875;
+    color: #fff;
 }

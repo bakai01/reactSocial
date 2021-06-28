@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import './app.css';
 
 import {
-    Header,
+    HeaderContainer,
     SidebarContainer,
     ProfileContainer,
     News,
@@ -19,7 +19,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className='app__wrapper'>
-                <Header />
+                <HeaderContainer />
                 <SidebarContainer />
                 <div className='wrapper__content'>
                     <Route path='/profile/:userId?' render={() => <ProfileContainer />} />

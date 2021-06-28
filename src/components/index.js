@@ -1,4 +1,4 @@
-export { default as Header } from './Header';
+export { default as HeaderContainer } from './Header/HeaderContainer';
 export { default as SidebarContainer } from './Sidebar/SidebarContainer';
 export { default as News } from './News';
 export { default as Music } from './Music';
