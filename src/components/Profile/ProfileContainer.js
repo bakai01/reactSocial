@@ -5,16 +5,16 @@ import { connect } from 'react-redux'
 import Profile from './Profile'
 
 import { setProfile } from '../../redux/profilePageReducer'
-import { useLocation } from 'react-router'
+import { useParams } from 'react-router-dom'
 
 const ProfileContainer = ({ profile, setProfile }) => {
-    const location = useLocation();
+    const { userId } = useParams()
 
     useEffect(() => {
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/${location.pathname}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
             .then(({ data }) => setProfile(data))
-    }, [location.pathname, setProfile])
+    }, [userId, setProfile])
 
     return <Profile profile={profile} />
 }
