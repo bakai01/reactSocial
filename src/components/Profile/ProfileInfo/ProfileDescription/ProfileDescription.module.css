@@ -1,12 +1,13 @@
 .profile-about {
     box-sizing: border-box;
     display: flex;
+    position: relative;
 }
 
 .profile__img {
-    position: relative;
-    top: -90px;
-    left: 60px;
+    position: absolute;
+    top: -200px;
+    left: 40px;
     width: 200px;
 }
 
@@ -17,14 +18,24 @@
 }
 
 .profile__description {
-    margin-left: 120px;
-    margin-top: -60px;
+    margin: -10px 0 0 50px;
     font-family: "Helvetica Neue";
     font-weight: 700;
 }
 
+.description__title {
+    margin-bottom: 25px;
+}
+
 h2 {
-    font-size: 27px;
+    font-size: 32px;
+    margin: 20px 0 0;
+    color: rgb(228, 228, 228);
+    font-weight: 400;
+}
+
+.description__title p {
+    margin: 0;
 }
 
 .profile__description span {

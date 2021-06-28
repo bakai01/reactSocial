@@ -17,14 +17,12 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* border: 2px solid #aab8c242; */
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
 
 .main__img img {
     width: 100%;
-    flex-shrink: 0;
     min-width: 100%;
     min-height: 100%;
 }

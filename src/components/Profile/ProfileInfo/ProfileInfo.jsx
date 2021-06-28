@@ -6,8 +6,6 @@ import style from './ProfileInfo.module.css';
 
 const ProfileInfo = ({ profile }) => {
 
-    console.log(profile)
-
     return (
         <div className={style.profile__wrapper}>
             <div className={style.img__wrapper}>
@@ -16,7 +14,7 @@ const ProfileInfo = ({ profile }) => {
                 </div>
             </div>
 
-            <ProfileDescription />
+            <ProfileDescription profile={profile}  />
         </div>
     );
 };

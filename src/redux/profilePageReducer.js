@@ -3,7 +3,7 @@ const UPDATE_POST_OF_TEXT = 'UPDATE-POST-OF-TEXT';
 const SET_PROFILE = 'SET_PROFILE';
 
 const initialState = {
-    profile: {},
+    profile: null,
     listOfAllPosts: [{ id: 0, text: 'hello, world', likesCount: 23 }],
     newPostText: ''
 };
