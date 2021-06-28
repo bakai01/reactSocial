@@ -13,16 +13,16 @@ const initialState = {
     isLoading: false
 };
 
-const usersPageReducer = (usersPageState = initialState, action) => {
+const usersPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS: {
-            return { ...usersPageState, users: action.users };
+            return { ...state, users: action.users };
         }
 
         case FOLLOW: {
             return {
-                ...usersPageState,
-                users: usersPageState.users.map(item => {
+                ...state,
+                users: state.users.map(item => {
                     if (item.id === action.userId) {
                         return {
                             ...item,
@@ -37,8 +37,8 @@ const usersPageReducer = (usersPageState = initialState, action) => {
 
         case UNFOLLOW: {
             return {
-                ...usersPageState,
-                users: usersPageState.users.map(item => {
+                ...state,
+                users: state.users.map(item => {
                     if (item.id === action.userId) {
                         return {
                             ...item,
@@ -52,21 +52,21 @@ const usersPageReducer = (usersPageState = initialState, action) => {
         }
 
         case SET_TOTAL_COUNT: {
-            return {...usersPageState, totalUserCount: action.totalCount };
+            return {...state, totalUserCount: action.totalCount };
         }
 
         case SET_CURRENT_PAGE : {
-            return {...usersPageState, currentPage: action.pageNumber};
+            return {...state, currentPage: action.pageNumber};
         }
 
         case SET_LOADING: {
             return {
-                ...usersPageState, isLoading: action.fetching
+                ...state, isLoading: action.fetching
             };
         }
 
         default:
-            return usersPageState;
+            return state;
     }
 };
 

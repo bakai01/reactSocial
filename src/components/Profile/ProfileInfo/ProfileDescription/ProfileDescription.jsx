@@ -7,8 +7,6 @@ const ProfileDescription = ({ profile }) => {
 
     if (!profile) return <Preloader />
 
-    console.log(profile)
-
     return (
         <div className={style['profile-about']}>
             <div className={style.profile__img}>

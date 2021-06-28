@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import style from './Users.module.css';
 
@@ -8,6 +8,7 @@ import UsersPagination from './Pagination/UsersPagination';
 import Preloader from '../common/Preloader'; 
 
 const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, pageSize, isLoading }) => {
+
     return (
         <div>
             <UsersPagination
@@ -23,11 +24,11 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                     return (
                         <div className={style.wrapper} key={item.id}>
                             <div className={style.container}>
-                                <NavLink to={`/profile/${item.id}`}>
+                                <Link to={`/profile/${item.id}`}>
                                     <div className={style.img__container}>
                                         <img src={item.photos.large != null ? item.photos.large : avatarPhoto} alt='avatar of user' />
                                     </div>
-                                </NavLink>
+                                </Link>
 
                                 <div className={style.content}>
                                     <div className={style.head}>
