@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import style from './Users.module.css';
 
@@ -22,9 +23,11 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                     return (
                         <div className={style.wrapper} key={item.id}>
                             <div className={style.container}>
-                                <div className={style.img__container}>
-                                    <img src={item.photos.large != null ? item.photos.large : avatarPhoto} alt='avatar of user' />
-                                </div>
+                                <NavLink to={`/profile/${item.id}`}>
+                                    <div className={style.img__container}>
+                                        <img src={item.photos.large != null ? item.photos.large : avatarPhoto} alt='avatar of user' />
+                                    </div>
+                                </NavLink>
 
                                 <div className={style.content}>
                                     <div className={style.head}>

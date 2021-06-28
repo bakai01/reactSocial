@@ -21,7 +21,7 @@ const App = () => {
                 <Header />
                 <SidebarContainer />
                 <div className='wrapper__content'>
-                    <Route exact path='/profile' render={ () => <Profile /> } />
+                    <Route path='/profile' render={ () => <Profile /> } />
                     <Route path='/dialogs' render={ () => <DialogsContainer /> } />
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />

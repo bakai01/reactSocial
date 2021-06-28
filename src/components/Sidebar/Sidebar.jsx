@@ -22,7 +22,7 @@ const Sidebar = ({ state }) => {
                 </li>
                 <li className={style.item}>
                     <NavLink className={style.link} activeClassName={style.active} to='/users'>
-                        <i className='fas fa-user-friends'></i>
+                        <i className="fas fa-user"></i>
                         Users
                     </NavLink>
                 </li>
