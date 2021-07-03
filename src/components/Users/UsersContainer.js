@@ -1,40 +1,44 @@
-import React from 'react';
-import * as axios from 'axios';
-import { connect } from 'react-redux';
+import React from 'react'
+import * as axios from 'axios'
+import { connect } from 'react-redux'
 
-import Users from './Users';
+import Users from './Users'
 
-import { follow, unfollow, setUsers, setTotalUserCount, setCurrentPage, setLoading } from '../../redux/usersPageReducer';
+import { follow, unfollow, setUsers, setTotalUserCount, setCurrentPage, setLoading } from '../../redux/usersPageReducer'
 
 class UsersAPI extends React.Component {
 
     componentDidMount() {
         this.props.setLoading(true);
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=1`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=1`, {
+                withCredentials: true
+            })
             .then(({ data }) => {
-                this.props.setLoading(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUserCount(data.totalCount);
+                this.props.setLoading(false)
+                this.props.setUsers(data.items)
+                this.props.setTotalUserCount(data.totalCount)
             })
             .catch(response => {
-                console.log(response);
-                console.log('Error when requesting to the server');
-            });
+                console.log(response)
+                console.log('Error when requesting to the server')
+            })
     }
 
     onChangePage = pageNumber => {
         this.props.setLoading(!this.props.isLoading);
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`, {
+                withCredentials: true
+            })
             .then(({ data }) => {
-                this.props.setLoading(!this.props.isLoading);
-                this.props.setUsers(data.items);
-                this.props.setCurrentPage(pageNumber);
+                this.props.setLoading(!this.props.isLoading)
+                this.props.setUsers(data.items)
+                this.props.setCurrentPage(pageNumber)
             })
             .catch(() => {
-                console.log('Error when changing the page');
-            });
+                console.log('Error when changing the page')
+            })
     }
 
     render() {
@@ -46,7 +50,7 @@ class UsersAPI extends React.Component {
             totalUserCount={this.props.totalUserCount}
             pageSize={this.props.pageSize}
             isLoading={this.props.isLoading}
-        />;
+        />
     }
 }
 
@@ -58,7 +62,7 @@ const mapStateToProps = state => {
         currentPage: state.usersPage.currentPage,
         isLoading: state.usersPage.isLoading
     }
-};
+}
 
 const UsersContainer = connect(mapStateToProps, {
     follow,
@@ -67,6 +71,6 @@ const UsersContainer = connect(mapStateToProps, {
     setTotalUserCount,
     setCurrentPage,
     setLoading
-})(UsersAPI);
+})(UsersAPI)
 
-export default UsersContainer;
+export default UsersContainer
