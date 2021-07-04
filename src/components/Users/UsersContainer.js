@@ -1,20 +1,19 @@
 import React from 'react'
-import * as axios from 'axios'
 import { connect } from 'react-redux'
 
 import Users from './Users'
 
 import { follow, unfollow, setUsers, setTotalUserCount, setCurrentPage, setLoading } from '../../redux/usersPageReducer'
 
-class UsersAPI extends React.Component {
+import { UsersAPI } from '../../api/api'
+
+class UsersClassComponent extends React.Component {
 
     componentDidMount() {
-        this.props.setLoading(true);
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=1`, {
-                withCredentials: true
-            })
-            .then(({ data }) => {
+        this.props.setLoading(true)
+        UsersAPI
+            .getUsers(1, this.props.pageSize)
+            .then(data => {
                 this.props.setLoading(false)
                 this.props.setUsers(data.items)
                 this.props.setTotalUserCount(data.totalCount)
@@ -27,11 +26,9 @@ class UsersAPI extends React.Component {
 
     onChangePage = pageNumber => {
         this.props.setLoading(!this.props.isLoading);
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`, {
-                withCredentials: true
-            })
-            .then(({ data }) => {
+        UsersAPI
+            .getUsers(pageNumber, this.props.pageSize)
+            .then(data => {
                 this.props.setLoading(!this.props.isLoading)
                 this.props.setUsers(data.items)
                 this.props.setCurrentPage(pageNumber)
@@ -71,6 +68,6 @@ const UsersContainer = connect(mapStateToProps, {
     setTotalUserCount,
     setCurrentPage,
     setLoading
-})(UsersAPI)
+})(UsersClassComponent)
 
 export default UsersContainer

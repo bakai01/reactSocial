@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react'
-import * as axios from 'axios'
 import { connect } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 import Profile from './Profile'
 
 import { setProfile } from '../../redux/profilePageReducer'
-import { useParams } from 'react-router-dom'
+
+import { ProfileAPI } from '../../api/api'
 
 const ProfileContainer = ({ profile, setProfile }) => {
     let { userId } = useParams()
 
-    if (!userId) userId = 4
+    if (!userId) userId = 2
 
     useEffect(() => {
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(({ data }) => setProfile(data))
+        ProfileAPI
+            .getProfile(userId)
+            .then(data => setProfile(data))
     }, [userId, setProfile])
 
     return <Profile profile={profile} />

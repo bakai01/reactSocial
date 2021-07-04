@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react'
-import * as axios from 'axios'
 import { connect } from 'react-redux'
 
 import Header from './Header'
 
 import { setAuthorizedUser } from '../../redux/authReducer'
 
+import { HeaderAPI } from '../../api/api'
+
 const HeaderContainer = ({ setAuthorizedUser, login, isAuthorized }) => {
     useEffect(() => {
-        axios
-            .get('https://social-network.samuraijs.com/api/1.0/auth/me', {
-                withCredentials: true
-            })
-            .then(response => setAuthorizedUser(response.data.data))
+        HeaderAPI
+            .AuthMe()
+            .then(data => setAuthorizedUser(data))
     }, [setAuthorizedUser])
 
     return <Header login={login} isAuthorized={isAuthorized} />
