@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import * as axios from 'axios';
 
 import style from './Users.module.css'
 
 import avatarPhoto from '../../assets/images/defaultAvatar.jpg'
 import UsersPagination from './Pagination/UsersPagination'
 import Preloader from '../common/Preloader'
+
+import { UsersAPI } from '../../api/api'
 
 const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, pageSize, isLoading }) => {
 
@@ -26,7 +27,10 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                         <div className={style.container}>
                             <Link to={`/profile/${item.id}`}>
                                 <div className={style.img__container}>
-                                    <img src={item.photos.large != null ? item.photos.large : avatarPhoto} alt='avatar of user' />
+                                    <img
+                                        src={item.photos.large !== null ? item.photos.large : avatarPhoto}
+                                        alt='avatar of user'
+                                    />
                                 </div>
                             </Link>
 
@@ -44,35 +48,24 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                                 </div>
 
                             </div>
-                            {
-                                item.followed
-                                    ? <div className={style.floating__icon} onClick={() => {
-                                        axios
-                                            .delete(`https://social-network.samuraijs.com/api/1.0/follow/${item.id}`, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    'API-KEY': '31316700-fce6-4988-8e2d-112759371390'
-                                                }
-                                            })
-                                            .then(({ data }) => {
-                                                if (data.resultCode === 0) unfollow(item.id)
-                                            })
-                                    }} >
-                                        <i className='fa fa-plus' aria-hidden='true'></i>
-                                    </div>
+                            {item.followed
+                                ? <div className={style.floating__icon} onClick={() => {
+                                    UsersAPI
+                                        .unfollow(item.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) unfollow(item.id)
+                                        })
+                                }} >
+                                    <i className='fa fa-plus' aria-hidden='true'></i>
+                                </div>
 
-                                    : <div className={style.btn} onClick={() => {
-                                        axios
-                                            .post(`https://social-network.samuraijs.com/api/1.0/follow/${item.id}`, {}, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    'API-KEY': '31316700-fce6-4988-8e2d-112759371390'
-                                                }
-                                            })
-                                            .then(({ data }) => {
-                                                if (data.resultCode === 0) follow(item.id)
-                                            })
-                                    }} >follow</div>
+                                : <div className={style.btn} onClick={() => {
+                                    UsersAPI
+                                        .follow(item.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) follow(item.id)
+                                        })
+                                }} >follow</div>
                             }
                         </div>
                     </div>
@@ -84,4 +77,4 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
     )
 }
 
-export default Users
+export { Users }

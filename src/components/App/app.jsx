@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import './app.css';
+import './app.css'
 
 import {
     HeaderContainer,
@@ -14,24 +14,21 @@ import {
     UsersContainer
 } from '../../components'
 
-const App = () => {
-
-    return (
-        <BrowserRouter>
-            <div className='app__wrapper'>
-                <HeaderContainer />
-                <SidebarContainer />
-                <div className='wrapper__content'>
-                    <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-                    <Route path='/dialogs' render={() => <DialogsContainer />} />
-                    <Route path='/news' component={News} />
-                    <Route path='/music' component={Music} />
-                    <Route path='/settings' component={Settings} />
-                    <Route path='/users' render={() => <UsersContainer />} />
-                </div>
+const App = () => (
+    <BrowserRouter>
+        <div className='app__wrapper'>
+            <HeaderContainer />
+            <SidebarContainer />
+            <div className='wrapper__content'>
+                <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+                <Route path='/dialogs' render={() => <DialogsContainer />} />
+                <Route path='/news' component={News} />
+                <Route path='/music' component={Music} />
+                <Route path='/settings' component={Settings} />
+                <Route path='/users' render={() => <UsersContainer />} />
             </div>
-        </BrowserRouter>
-    )
-}
+        </div>
+    </BrowserRouter>
+)
 
 export default App
