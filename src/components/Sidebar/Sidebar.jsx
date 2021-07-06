@@ -1,8 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import FriendList from './FriendList';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import FriendList from './FriendList'
 
-import style from './Sidebar.module.css';
+import style from './Sidebar.module.css'
 
 const Sidebar = ({ state }) => {
     return (
@@ -53,12 +53,12 @@ const Sidebar = ({ state }) => {
                     state.friendList.map((item) => {
                         return (
                             <FriendList key={item.id} name={item.name} />
-                        );
+                        )
                     })
                 }
             </div>
         </nav>
-    );
+    )
 }
 
-export default Sidebar;
+export default Sidebar

@@ -59,20 +59,20 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                                     <i className='fa fa-plus' aria-hidden='true'></i>
                                 </button>
 
-                                : <button  className={style.btn} onClick={() => {
+                                : <button className={style.btn} onClick={() => {
                                     UsersAPI
                                         .follow(item.id)
                                         .then(data => {
                                             if (data.resultCode === 0) follow(item.id)
                                         })
-                                }}>follow</button>
+                                }} >
+                                    follow
+                                </button>
                             }
                         </div>
                     </div>
-
                 )
-            })
-            }
+            })}
         </div>
     )
 }

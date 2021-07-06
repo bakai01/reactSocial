@@ -1,12 +1,10 @@
-import React from 'react';
-import ReactPaginate from 'react-paginate';
+import React from 'react'
+import ReactPaginate from 'react-paginate'
 
-import style from './UsersPagination.module.css';
+import style from './UsersPagination.module.css'
 
 const UsersPagination = ({ totalUserCount, pageSize, onChangePage }) => {
-    const pagesCount = Math.ceil(totalUserCount / pageSize);
-
-    
+    const pagesCount = Math.ceil(totalUserCount / pageSize)
 
     return (
         <div className={style.navigation__btn}>
@@ -22,7 +20,7 @@ const UsersPagination = ({ totalUserCount, pageSize, onChangePage }) => {
                 activeClassName={style.active}
             />
         </div>
-    );
-};
+    )
+}
 
-export default UsersPagination;
+export default UsersPagination

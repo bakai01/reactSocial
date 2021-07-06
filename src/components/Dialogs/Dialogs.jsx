@@ -1,18 +1,18 @@
-import React from 'react';
-import style from './Dialogs.module.css';
-import Dialog from './Dialog';
-import Message from './Message';
+import React from 'react'
+import style from './Dialogs.module.css'
+import Dialog from './Dialog'
+import Message from './Message'
 
 const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
 
     const onAddNewMessage = () => {
-        addNewMessage();
-    };
+        addNewMessage()
+    }
 
     const onChangeMessageText = (event) => {
-        let textFromTextare = event.target.value;
-        changeMessageText(textFromTextare);
-    };
+        let textFromTextare = event.target.value
+        changeMessageText(textFromTextare)
+    }
 
     return (
         <div className={style.dialogs}>
@@ -21,7 +21,7 @@ const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
                     dialogsPage.dialogData.map((item) => {
                         return (
                             <Dialog key={item.id} id={item.id} name={item.name} />
-                        );
+                        )
                     })
                 }
             </div>
@@ -31,7 +31,7 @@ const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
                         dialogsPage.listOfAllMessages.map((item) => {
                             return (
                                 <Message key={item.id} text={item.text} />
-                            );
+                            )
                         })
                     }
                 </div>
@@ -48,7 +48,7 @@ const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Dialogs;
+export default Dialogs

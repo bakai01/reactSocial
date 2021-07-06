@@ -1,7 +1,7 @@
-import React from 'react';
-import Preloader from '../../../common/Preloader';
+import React from 'react'
+import Preloader from '../../../common/Preloader'
 
-import style from './ProfileDescription.module.css';
+import style from './ProfileDescription.module.css'
 
 const ProfileDescription = ({ profile }) => {
 
@@ -29,7 +29,7 @@ const ProfileDescription = ({ profile }) => {
                 <span>Education: KSTU</span>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ProfileDescription;
+export default ProfileDescription

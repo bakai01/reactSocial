@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import style from './Header.module.css'
 
-const Header = (props) => {
+const Header = props => {
 
     return (
         <header className={style.header}>

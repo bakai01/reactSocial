@@ -1,5 +1,5 @@
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
-const UPDATE_MESSAGE_OF_TEXT = 'UPDATE-MESSAGE-OF-TEXT';
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE'
+const UPDATE_MESSAGE_OF_TEXT = 'UPDATE-MESSAGE-OF-TEXT'
 
 const initialState = {
     dialogData: [
@@ -15,46 +15,46 @@ const initialState = {
         { id: 2, text: 'Dubu' }
     ],
     newMessageText: ''
-};
+}
 
 const dialogsPageReducer = (dialogsPageState = initialState, action) => {
     const getLastMessageId = () => {
-        let messageList = dialogsPageState.listOfAllMessages;
-        let i = messageList[messageList.length - 1].id;
-        return ++i;
-    };
+        let messageList = dialogsPageState.listOfAllMessages
+        let i = messageList[messageList.length - 1].id
+        return ++i
+    }
 
     switch (action.type) {
         case ADD_NEW_MESSAGE: {
             const newMessage = {
                 id: getLastMessageId(),
                 text: dialogsPageState.newMessageText
-            };
+            }
 
             return {
                 ...dialogsPageState,
                 listOfAllMessages: [...dialogsPageState.listOfAllMessages, newMessage],
                 newMessageText: '',
-            };
+            }
         }
 
         case UPDATE_MESSAGE_OF_TEXT: {
             return {
                 ...dialogsPageState,
                 newMessageText: action.newWordInTextarea
-            };
+            }
         }
 
         default:
-            return dialogsPageState;
+            return dialogsPageState
     }
-};
+}
 
-export const addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE });
+export const addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE })
 
 export const onChangeMessageTextActionCreator = (textOfMessage) => (
     { type: UPDATE_MESSAGE_OF_TEXT, newWordInTextarea: textOfMessage }
-);
+)
 
-export default dialogsPageReducer;
+export default dialogsPageReducer
 

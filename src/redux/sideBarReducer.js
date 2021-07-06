@@ -4,10 +4,10 @@ const initialState = {
         { id: 1, name: 'Cacke' },
         { id: 2, name: 'Pops' }
     ]
-};
+}
 
 const sideBarReducer = (sideBarState = initialState, action) => {
-    return sideBarState;
-};
+    return sideBarState
+}
 
-export default sideBarReducer;
+export default sideBarReducer
