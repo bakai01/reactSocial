@@ -11,6 +11,7 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 5, 52, 0.5);
     margin-left: .3%;
+    position: relative;
 }
 
 .img__container {
@@ -84,27 +85,28 @@
 
 .floating__icon {
     position: absolute;
-    width: 5%;
+    width: 13%;
     height: 80px;
     background: #50b5ff;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: 6%;
-    margin-left: 37.3%;
+    top: 33%;
+    left: 93%;
+    border: 0;
 }
 
 .floating__icon i {
     position: absolute;
-    margin-left: 29px;
-    margin-top: 26px;
+    top: 34%;
+    left: 37%;
     color: #fff;
     font-size: 25px;
 }
 
 .btn {
     position: absolute;
-    margin-top: 10px;
-    margin-left: 33%;
+    right: 1%;
+    top: 3%;
     text-transform: uppercase;
     font-size: 15px;
     background: #50b5ff;
@@ -114,4 +116,13 @@
     color: #fff;
     cursor: pointer;
     font-weight: 600;
+    border: 0;
+}
+
+.btn:disabled,
+.btn[disabled],
+.floating__icon:disabled,
+.floating__icon[disabled]{
+  background-color: #cccccc;
+  color: #666666;
 }

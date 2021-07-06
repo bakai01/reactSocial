@@ -49,7 +49,7 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
 
                             </div>
                             {item.followed
-                                ? <div className={style.floating__icon} onClick={() => {
+                                ? <button className={style.floating__icon} onClick={() => {
                                     UsersAPI
                                         .unfollow(item.id)
                                         .then(data => {
@@ -57,15 +57,15 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                                         })
                                 }} >
                                     <i className='fa fa-plus' aria-hidden='true'></i>
-                                </div>
+                                </button>
 
-                                : <div className={style.btn} onClick={() => {
+                                : <button  className={style.btn} onClick={() => {
                                     UsersAPI
                                         .follow(item.id)
                                         .then(data => {
                                             if (data.resultCode === 0) follow(item.id)
                                         })
-                                }} >follow</div>
+                                }}>follow</button>
                             }
                         </div>
                     </div>

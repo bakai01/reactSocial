@@ -4,13 +4,15 @@ const SET_USERS = 'SET-USERS'
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_LOADING = 'SET_LOADING'
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 
 const initialState = {
     users: [],
     pageSize: 5,
     totalUserCount: 0,
     currentPage: 1,
-    isLoading: false
+    isLoading: false,
+    followingInProgress: false
 }
 
 const usersPageReducer = (state = initialState, action) => {
@@ -52,11 +54,11 @@ const usersPageReducer = (state = initialState, action) => {
         }
 
         case SET_TOTAL_COUNT: {
-            return {...state, totalUserCount: action.totalCount }
+            return { ...state, totalUserCount: action.totalCount }
         }
 
-        case SET_CURRENT_PAGE : {
-            return {...state, currentPage: action.pageNumber}
+        case SET_CURRENT_PAGE: {
+            return { ...state, currentPage: action.pageNumber }
         }
 
         case SET_LOADING: {
@@ -65,21 +67,27 @@ const usersPageReducer = (state = initialState, action) => {
             }
         }
 
+        case TOGGLE_IS_FOLLOWING_PROGRESS: {
+            return { ...state, followingInProgress: action.payload }
+        }
+
         default:
             return state
     }
 }
 
-export const follow = userId => ( { type: FOLLOW, userId } )
+export const follow = userId => ({ type: FOLLOW, userId })
 
-export const unfollow = userId => ( { type: UNFOLLOW, userId } )
+export const unfollow = userId => ({ type: UNFOLLOW, userId })
 
-export const setUsers = users => ( {type: SET_USERS, users} )
+export const setUsers = users => ({ type: SET_USERS, users })
 
-export const setTotalUserCount = totalCount => ( {type: SET_TOTAL_COUNT, totalCount} )
+export const setTotalUserCount = totalCount => ({ type: SET_TOTAL_COUNT, totalCount })
 
-export const setCurrentPage = pageNumber => ( {type: SET_CURRENT_PAGE, pageNumber} )
+export const setCurrentPage = pageNumber => ({ type: SET_CURRENT_PAGE, pageNumber })
 
-export const setLoading = fetching => ( {type: SET_LOADING, fetching} )
+export const setLoading = fetching => ({ type: SET_LOADING, fetching })
+
+export const toggleFoollowingProgress = fetching => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, payload: fetching })
 
 export default usersPageReducer
