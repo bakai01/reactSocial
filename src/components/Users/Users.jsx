@@ -20,8 +20,6 @@ const Users = ({
     followingInProgress,
     toggleFoollowingProgress }) => {
 
-        console.log(usersPage)
-
     return (
         <div>
             <UsersPagination
@@ -66,9 +64,9 @@ const Users = ({
                                     onClick={() => {
                                         toggleFoollowingProgress(true, item.id)
                                         UsersAPI
-                                            .follow(item.id)
+                                            .unfollow(item.id)
                                             .then(data => {
-                                                if (data.resultCode === 0) follow(item.id)
+                                                if (data.resultCode === 0) unfollow(item.id)
                                                 toggleFoollowingProgress(false, item.id)
                                             })
                                     }} >
@@ -81,9 +79,9 @@ const Users = ({
                                     onClick={() => {
                                         toggleFoollowingProgress(true, item.id)
                                         UsersAPI
-                                            .unfollow(item.id)
+                                            .follow(item.id)
                                             .then(data => {
-                                                if (data.resultCode === 0) unfollow(item.id)
+                                                if (data.resultCode === 0) follow(item.id)
                                                 toggleFoollowingProgress(false, item.id)
                                             })
                                     }} >
