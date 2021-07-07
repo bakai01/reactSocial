@@ -9,7 +9,18 @@ import Preloader from '../common/Preloader'
 
 import { UsersAPI } from '../../api/api'
 
-const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, pageSize, isLoading }) => {
+const Users = ({
+    onChangePage,
+    usersPage,
+    unfollow,
+    follow,
+    totalUserCount,
+    pageSize,
+    isLoading,
+    followingInProgress,
+    toggleFoollowingProgress }) => {
+
+        console.log(usersPage)
 
     return (
         <div>
@@ -46,27 +57,37 @@ const Users = ({ onChangePage, usersPage, unfollow, follow, totalUserCount, page
                                         <span>{'item.location.city'}</span>
                                     </div>
                                 </div>
-
                             </div>
+
                             {item.followed
-                                ? <button className={style.floating__icon} onClick={() => {
-                                    UsersAPI
-                                        .unfollow(item.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) unfollow(item.id)
-                                        })
-                                }} >
-                                    <i className='fa fa-plus' aria-hidden='true'></i>
+                                ? <button
+                                    disabled={followingInProgress.some(id => id === item.id)}
+                                    className={style.btn}
+                                    onClick={() => {
+                                        toggleFoollowingProgress(true, item.id)
+                                        UsersAPI
+                                            .follow(item.id)
+                                            .then(data => {
+                                                if (data.resultCode === 0) follow(item.id)
+                                                toggleFoollowingProgress(false, item.id)
+                                            })
+                                    }} >
+                                    unfollow
                                 </button>
 
-                                : <button className={style.btn} onClick={() => {
-                                    UsersAPI
-                                        .follow(item.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) follow(item.id)
-                                        })
-                                }} >
-                                    follow
+                                : <button
+                                    disabled={followingInProgress.some(id => id === item.id)}
+                                    className={style.floating__icon}
+                                    onClick={() => {
+                                        toggleFoollowingProgress(true, item.id)
+                                        UsersAPI
+                                            .unfollow(item.id)
+                                            .then(data => {
+                                                if (data.resultCode === 0) unfollow(item.id)
+                                                toggleFoollowingProgress(false, item.id)
+                                            })
+                                    }} >
+                                    <i className='fa fa-plus' aria-hidden='true'></i>
                                 </button>
                             }
                         </div>

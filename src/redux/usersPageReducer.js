@@ -12,7 +12,7 @@ const initialState = {
     totalUserCount: 0,
     currentPage: 1,
     isLoading: false,
-    followingInProgress: false
+    followingInProgress: []
 }
 
 const usersPageReducer = (state = initialState, action) => {
@@ -68,7 +68,12 @@ const usersPageReducer = (state = initialState, action) => {
         }
 
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
-            return { ...state, followingInProgress: action.payload }
+            return {
+                ...state,
+                followingInProgress: action.fetching
+                    ? [...state.followingInProgress, action.id]
+                    : state.followingInProgress.filter(id => id !== action.id)
+            }
         }
 
         default:
@@ -88,6 +93,6 @@ export const setCurrentPage = pageNumber => ({ type: SET_CURRENT_PAGE, pageNumbe
 
 export const setLoading = fetching => ({ type: SET_LOADING, fetching })
 
-export const toggleFoollowingProgress = fetching => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, payload: fetching })
+export const toggleFoollowingProgress = (fetching, id) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, fetching, id })
 
 export default usersPageReducer
