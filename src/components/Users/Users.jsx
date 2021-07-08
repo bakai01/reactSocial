@@ -5,7 +5,7 @@ import style from './Users.module.css'
 
 import avatarPhoto from '../../assets/images/defaultAvatar.jpg'
 import UsersPagination from './Pagination/UsersPagination'
-import Preloader from '../common/Preloader'
+import { Preloader } from '../common/Preloader'
 
 import { UsersAPI } from '../../api/api'
 

@@ -1,7 +1,7 @@
 import profilePageReducer from './profilePageReducer'
 import dialogsPageReducer from './dialogsPageReducer'
 import sideBarReducer from './sideBarReducer'
-import usersPageReducer from './usersPageReducer'
+import { usersPageReducer } from './usersPageReducer'
 import { authReducer } from './authReducer'
 
 import { combineReducers, createStore } from 'redux'

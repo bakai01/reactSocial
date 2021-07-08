@@ -95,4 +95,4 @@ export const setLoading = fetching => ({ type: SET_LOADING, fetching })
 
 export const toggleFoollowingProgress = (fetching, id) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, fetching, id })
 
-export default usersPageReducer
+export { usersPageReducer }

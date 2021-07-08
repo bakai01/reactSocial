@@ -31,4 +31,4 @@ const App = () => (
     </BrowserRouter>
 )
 
-export default App
+export { App }

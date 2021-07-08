@@ -51,4 +51,4 @@ const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
     )
 }
 
-export default Dialogs
+export { Dialogs }

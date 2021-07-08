@@ -1,5 +1,5 @@
 import React from 'react'
-import Preloader from '../../../common/Preloader'
+import { Preloader } from '../../../common/Preloader'
 
 import style from './ProfileDescription.module.css'
 

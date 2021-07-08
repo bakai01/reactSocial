@@ -1,6 +1,6 @@
 import { addNewMessageActionCreator, onChangeMessageTextActionCreator } from
     '../../redux/dialogsPageReducer'
-import Dialogs from './Dialogs'
+import { Dialogs } from './Dialogs'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
