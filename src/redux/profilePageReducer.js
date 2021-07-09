@@ -1,3 +1,5 @@
+import { ProfileAPI } from '../api/api'
+
 const ADD_NEW_POST = 'ADD-NEW-POST'
 const UPDATE_POST_OF_TEXT = 'UPDATE-POST-OF-TEXT'
 const SET_PROFILE = 'SET_PROFILE'
@@ -56,12 +58,18 @@ const profilePageReducer = (state = initialState, action) => {
     }
 }
 
+// action creators
 export const addPostActionCreator = () => ({ type: ADD_NEW_POST })
-
-export const updatePostOfTextActionCreator = (textOfPost) => (
-    { type: UPDATE_POST_OF_TEXT, newWordInTextarea: textOfPost }
-)
-
+export const updatePostOfTextActionCreator = textOfPost => ({ type: UPDATE_POST_OF_TEXT, newWordInTextarea: textOfPost })
 export const setProfile = profile => ({type: SET_PROFILE, payload: profile})
+
+// thunks
+export const getProfile = userId => {
+    return dispatch => {
+        ProfileAPI
+            .getProfile(userId)
+            .then(data => dispatch(setProfile(data)))
+    }
+}
 
 export default profilePageReducer
