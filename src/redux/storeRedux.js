@@ -4,7 +4,8 @@ import sideBarReducer from './sideBarReducer'
 import { usersPageReducer } from './usersPageReducer'
 import { authReducer } from './authReducer'
 
-import { combineReducers, createStore } from 'redux'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import reduxMiddleware from 'redux-thunk'
 
 const reducerPack = combineReducers({
     profilePage: profilePageReducer,
@@ -14,6 +15,6 @@ const reducerPack = combineReducers({
     auth: authReducer
 })
 
-const store = createStore(reducerPack)
+const store = createStore(reducerPack, applyMiddleware(reduxMiddleware))
 
 export default store

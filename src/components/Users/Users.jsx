@@ -7,8 +7,6 @@ import avatarPhoto from '../../assets/images/defaultAvatar.jpg'
 import UsersPagination from './Pagination/UsersPagination'
 import { Preloader } from '../common/Preloader'
 
-import { UsersAPI } from '../../api/api'
-
 const Users = ({
     onChangePage,
     usersPage,
@@ -17,8 +15,7 @@ const Users = ({
     totalUserCount,
     pageSize,
     isLoading,
-    followingInProgress,
-    toggleFoollowingProgress }) => {
+    followingInProgress }) => {
 
     return (
         <div>
@@ -61,30 +58,16 @@ const Users = ({
                                 ? <button
                                     disabled={followingInProgress.some(id => id === item.id)}
                                     className={style.btn}
-                                    onClick={() => {
-                                        toggleFoollowingProgress(true, item.id)
-                                        UsersAPI
-                                            .unfollow(item.id)
-                                            .then(data => {
-                                                if (data.resultCode === 0) unfollow(item.id)
-                                                toggleFoollowingProgress(false, item.id)
-                                            })
-                                    }} >
+                                    onClick={() => unfollow(item.id)}
+                                >
                                     unfollow
                                 </button>
 
                                 : <button
                                     disabled={followingInProgress.some(id => id === item.id)}
                                     className={style.floating__icon}
-                                    onClick={() => {
-                                        toggleFoollowingProgress(true, item.id)
-                                        UsersAPI
-                                            .follow(item.id)
-                                            .then(data => {
-                                                if (data.resultCode === 0) follow(item.id)
-                                                toggleFoollowingProgress(false, item.id)
-                                            })
-                                    }} >
+                                    onClick={() => follow(item.id)}
+                                >
                                     <i className='fa fa-plus' aria-hidden='true'></i>
                                 </button>
                             }

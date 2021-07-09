@@ -1,3 +1,5 @@
+import { UsersAPI } from "../api/api"
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
@@ -81,18 +83,55 @@ const usersPageReducer = (state = initialState, action) => {
     }
 }
 
-export const follow = userId => ({ type: FOLLOW, userId })
-
-export const unfollow = userId => ({ type: UNFOLLOW, userId })
-
+// action creators
+export const followSuccess = userId => ({ type: FOLLOW, userId })
+export const unfollowSuccess = userId => ({ type: UNFOLLOW, userId })
 export const setUsers = users => ({ type: SET_USERS, users })
-
 export const setTotalUserCount = totalCount => ({ type: SET_TOTAL_COUNT, totalCount })
-
 export const setCurrentPage = pageNumber => ({ type: SET_CURRENT_PAGE, pageNumber })
-
 export const setLoading = fetching => ({ type: SET_LOADING, fetching })
-
 export const toggleFoollowingProgress = (fetching, id) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, fetching, id })
+
+// thunks
+export const getUsers = (pageNumber, pageSize) => {
+    return dispatch => {
+        dispatch(setLoading(true))
+        UsersAPI
+            .getUsers(pageNumber, pageSize)
+            .then(data => {
+                dispatch(setLoading(false))
+                dispatch(setUsers(data.items))
+                dispatch(setTotalUserCount(data.totalCount))
+            })
+            .catch(response => {
+                console.log(response)
+                console.log('Error when requesting to the server')
+            })
+    }
+}
+
+export const unfollow = userId => {
+    return dispatch => {
+        dispatch(toggleFoollowingProgress(true, userId))
+        UsersAPI
+            .unfollow(userId)
+            .then(data => {
+                if (data.resultCode === 0) dispatch(unfollowSuccess(userId))
+                dispatch(toggleFoollowingProgress(false, userId))
+            })
+    }
+}
+
+export const follow = userId => {
+    return dispatch => {
+        dispatch(toggleFoollowingProgress(true, userId))
+        UsersAPI
+            .follow(userId)
+            .then(data => {
+                if (data.resultCode === 0) dispatch(followSuccess(userId))
+                dispatch(toggleFoollowingProgress(false, userId))
+            })
+    }
+}
 
 export { usersPageReducer }

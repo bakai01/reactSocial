@@ -6,44 +6,17 @@ import { Users } from './Users'
 import {
     follow,
     unfollow,
-    setUsers,
-    setTotalUserCount,
-    setCurrentPage,
-    setLoading,
-    toggleFoollowingProgress
+    getUsers
 } from '../../redux/usersPageReducer'
-
-import { UsersAPI } from '../../api/api'
 
 class UsersClassComponent extends React.Component {
 
     componentDidMount() {
-        this.props.setLoading(true)
-        UsersAPI
-            .getUsers(1, this.props.pageSize)
-            .then(data => {
-                this.props.setLoading(false)
-                this.props.setUsers(data.items)
-                this.props.setTotalUserCount(data.totalCount)
-            })
-            .catch(response => {
-                console.log(response)
-                console.log('Error when requesting to the server')
-            })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onChangePage = pageNumber => {
-        this.props.setLoading(!this.props.isLoading);
-        UsersAPI
-            .getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.setLoading(!this.props.isLoading)
-                this.props.setUsers(data.items)
-                this.props.setCurrentPage(pageNumber)
-            })
-            .catch(() => {
-                console.log('Error when changing the page')
-            })
+        this.props.getUsers(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -75,11 +48,7 @@ const mapStateToProps = state => {
 const UsersContainer = connect(mapStateToProps, {
     follow,
     unfollow,
-    setUsers,
-    setTotalUserCount,
-    setCurrentPage,
-    setLoading,
-    toggleFoollowingProgress
+    getUsers
 })(UsersClassComponent)
 
 export { UsersContainer }
