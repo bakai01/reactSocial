@@ -28,10 +28,8 @@ export const authReducer = (state = initialState, action) => {
 export const setAuthorizedUser = userData => ({ type: SET_USER_AUTH, payload: userData })
 
 // thunks
-export const authMe = () => {
-    return dispatch => {
-        HeaderAPI
-            .AuthMe()
-            .then(data => dispatch(setAuthorizedUser(data)))
-    }
+export const authMe = () => dispatch => {
+    HeaderAPI
+        .AuthMe()
+        .then(data => dispatch(setAuthorizedUser(data)))
 }

@@ -64,12 +64,11 @@ export const updatePostOfTextActionCreator = textOfPost => ({ type: UPDATE_POST_
 export const setProfile = profile => ({type: SET_PROFILE, payload: profile})
 
 // thunks
-export const getProfile = userId => {
-    return dispatch => {
-        ProfileAPI
-            .getProfile(userId)
-            .then(data => dispatch(setProfile(data)))
-    }
+export const getProfile = userId => dispatch => {
+    ProfileAPI
+        .getProfile(userId)
+        .then(data => dispatch(setProfile(data)))
 }
+
 
 export default profilePageReducer
