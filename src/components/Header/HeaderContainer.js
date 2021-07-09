@@ -3,16 +3,12 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 
-import { setAuthorizedUser } from '../../redux/authReducer'
+import { authMe } from '../../redux/authReducer'
 
-import { HeaderAPI } from '../../api/api'
-
-const HeaderContainer = ({ setAuthorizedUser, login, isAuthorized }) => {
+const HeaderContainer = ({ authMe, login, isAuthorized }) => {
     useEffect(() => {
-        HeaderAPI
-            .AuthMe()
-            .then(data => setAuthorizedUser(data))
-    }, [setAuthorizedUser])
+        authMe()
+    }, [authMe])
 
     return <Header login={login} isAuthorized={isAuthorized} />
 }
@@ -22,4 +18,4 @@ const mapStateToProps = state => ({
     isAuthorized: state.auth.isAuthorized
 })
 
-export default connect(mapStateToProps, { setAuthorizedUser })(HeaderContainer)
+export default connect(mapStateToProps, { authMe })(HeaderContainer)

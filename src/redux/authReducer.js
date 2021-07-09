@@ -1,3 +1,5 @@
+import { HeaderAPI } from '../api/api'
+
 const SET_USER_AUTH = 'ADD-SET_USER_AUTH-MESSAGE'
 
 const initialState = {
@@ -22,4 +24,14 @@ export const authReducer = (state = initialState, action) => {
     }
 }
 
+// action creators
 export const setAuthorizedUser = userData => ({ type: SET_USER_AUTH, payload: userData })
+
+// thunks
+export const authMe = () => {
+    return dispatch => {
+        HeaderAPI
+            .AuthMe()
+            .then(data => dispatch(setAuthorizedUser(data)))
+    }
+}
