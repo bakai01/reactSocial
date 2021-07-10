@@ -1,9 +1,14 @@
 import React from 'react'
+import { Redirect } from 'react-router'
+
 import style from './Dialogs.module.css'
+
 import Dialog from './Dialog'
 import Message from './Message'
 
-const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage }) => {
+const Dialogs = ({ addNewMessage, changeMessageText, dialogsPage, isAuth }) => {
+
+    if (!isAuth) return <Redirect to='/login' />
 
     const onAddNewMessage = () => {
         addNewMessage()
