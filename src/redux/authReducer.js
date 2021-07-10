@@ -31,5 +31,7 @@ export const setAuthorizedUser = userData => ({ type: SET_USER_AUTH, payload: us
 export const authMe = () => dispatch => {
     HeaderAPI
         .AuthMe()
-        .then(data => dispatch(setAuthorizedUser(data)))
+        .then(response => {
+            if (response.resultCode === 0) dispatch(setAuthorizedUser(response.data))
+        })
 }

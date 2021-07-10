@@ -11,7 +11,8 @@ import {
     Music,
     Settings,
     DialogsContainer,
-    UsersContainer
+    UsersContainer,
+    Login
 } from '../../components'
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
                 <Route path='/music' component={Music} />
                 <Route path='/settings' component={Settings} />
                 <Route path='/users' render={() => <UsersContainer />} />
+                <Route path='/login' render={() => <Login />} />
             </div>
         </div>
     </BrowserRouter>

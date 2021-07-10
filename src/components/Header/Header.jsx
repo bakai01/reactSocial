@@ -13,12 +13,11 @@ const Header = props => {
                 alt='logo'
             />
 
-            <Link to='login'>
-                {props.isAuthorized
-                    ? <p>{props.login}</p>
-                    : <button className={style.btn}>Login</button>
-                }
-            </Link>
+
+            {props.isAuthorized
+                ? <p>{props.login}</p>
+                : <Link to='login'><button className={style.btn}>Login</button></Link>
+            }
         </header>
     )
 }
